@@ -1,0 +1,30 @@
+.form-container {
+    width: 300px;   
+    height: 350px;  
+    background: rgb(255, 255, 255); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: rgb(15, 128, 71);
+}
+label {
+    color: rgba(0, 0, 0, 0.563);
+}
+
+button{
+    width: 300px;
+    background-color: rgb(15, 128, 71);
+
+}
+
+.criarConta{
+    color: rgb(15, 128, 71);
+}
