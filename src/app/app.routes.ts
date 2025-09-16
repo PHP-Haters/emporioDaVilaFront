@@ -4,12 +4,14 @@ import { AppComponent } from './app.component';
 import { PaginaInicialComponent } from './pages/pagina-inicial/pagina-inicial.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { PaginaProdutosComponent } from './pages/pagina-produtos/pagina-produtos.component';
+import { PaginaContatoComponent } from './pages/pagina-contato/pagina-contato.component';
 
 export const routes: Routes = [
   { path: "", redirectTo: "/index", pathMatch: "full" },
-  { path: 'index', component: PaginaInicialComponent }, 
-  { path: 'login', component: LoginPageComponent }, 
-  { path: 'produtos', component: PaginaProdutosComponent }
+  { path: 'index', component: PaginaInicialComponent },
+  { path: 'login', component: LoginPageComponent },
+  { path: 'produtos', component: PaginaProdutosComponent },
+  { path: 'contato', component: PaginaContatoComponent }
 ];
 
 @NgModule({
