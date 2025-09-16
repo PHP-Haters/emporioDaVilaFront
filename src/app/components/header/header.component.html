@@ -1,40 +1,24 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg fixed-top" [ngClass]="{ 'scrolled': scrolled }">
   <!-- Container wrapper -->
   <div class="container-fluid">
-    <!-- Toggle button -->
-   <button
-  class="navbar-toggler"
-  type="button"
-  data-bs-toggle="collapse"
-  data-bs-target="#navbarRightAlignExample"
-  aria-controls="navbarRightAlignExample"
-  aria-expanded="false"
-  aria-label="Toggle navigation"
->
-  <span class="navbar-toggler-icon"></span>
-</button>
-
     <!-- Collapsible wrapper -->
-    <div
-      class="collapse navbar-collapse"
-      id="navbarRightAlignExample"
-
-    >
-      <!-- Left links -->
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse" id="navbarRightAlignExample">
+      <!-- Right links -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex gap-4">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" aria-current="page" href="#">Início</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#">Produtos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
-            >Disabled</a
-          >
+          <a class="nav-link" href="#" tabindex="-1">Contato</a>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-light shadow-none ">Login</button>
         </li>
       </ul>
-      <!-- Left links -->
+      <!-- Right links -->
     </div>
     <!-- Collapsible wrapper -->
   </div>
