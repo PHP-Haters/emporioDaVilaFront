@@ -1,15 +1,15 @@
-@import '../../../colorPallete.scss';
+@use '../../../colorPallete.scss' as *;
 
 .form-container {
-    width: 300px;   
-    height: 350px;  
-    background: rgb(255, 255, 255); 
+    width: 300px;
+    height: 350px;
+    background: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
     position: relative;         /* garante que fique acima do granulado */
-    z-index: 1;  
+    z-index: 1;
 }
 
 body {
