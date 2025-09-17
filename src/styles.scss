@@ -1,7 +1,7 @@
 @use './colorPallete.scss' as *;
 @use 'mdb-angular-ui-kit/assets/scss/mdb.scss' as *;
 @import '@fortawesome/fontawesome-free/css/all.css';
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Judson:ital,wght@0,400;0,700;1,400&display=swap');
 
 * {
     margin: 0;
@@ -12,4 +12,8 @@
 body {
     font-family: "Jost", sans-serif;
     overflow: hidden;
+}
+
+h1, h2, h3 {
+    font-family: "Jost", sans-serif;
 }
