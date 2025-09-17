@@ -10,8 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  scrolled = false;
-
+  scrolled: boolean = false;
   constructor(private router: Router) {}
 
   @HostListener('window:scroll', [])

@@ -1,6 +1,6 @@
 <div class="pseudo-body bg-granulado">
   <main class="w-100 m-auto form-container" style="max-width: 400px;">
-    <form (ngSubmit)="login(emailInput.value, senhaInput.value)">
+    <form (ngSubmit)="login($event, emailInput.value, senhaInput.value)">
       <div class="form-floating mb-3">
         <input
           type="email"
