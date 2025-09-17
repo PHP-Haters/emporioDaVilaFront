@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';  // <-- Import obrigatório!
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   scrolled: boolean = false;
-  constructor(private router: Router) {}
+
+  constructor(private router: Router, public authService: AuthService) {}
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -20,5 +22,9 @@ export class HeaderComponent {
 
   goToLogin() {
     this.router.navigate(['/login']);
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

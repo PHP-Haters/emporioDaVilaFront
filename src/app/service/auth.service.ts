@@ -1,20 +1,25 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
-@Injectable({
-  providedIn: 'root' // garante que seja singleton
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-  private isUserLoggedIn = false;
+  private _isUserLoggedIn: boolean = false;
 
-  get isLoggedIn(): boolean {
-    return this.isUserLoggedIn;
+  constructor() {
+    // Ao iniciar, lê o estado do localStorage
+    this._isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+  }
+
+  get isUserLoggedIn(): boolean {
+    return this._isUserLoggedIn;
   }
 
   login() {
-    this.isUserLoggedIn = true;
+    this._isUserLoggedIn = true;
+    localStorage.setItem('isUserLoggedIn', 'true');
   }
 
   logout() {
-    this.isUserLoggedIn = false;
+    this._isUserLoggedIn = false;
+    localStorage.removeItem('isUserLoggedIn');
   }
 }
