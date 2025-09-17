@@ -12,13 +12,11 @@
     z-index: 1;
 }
 
-body {
+.pseudo-body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: $verde-amarelado;
-    background: $gradiente-verde;
 }
 
 label {
@@ -30,6 +28,6 @@ button{
     background: $gradiente-verde;
 }
 
-.criarConta{
+.login-link{
     color: $verde-escuro;
 }

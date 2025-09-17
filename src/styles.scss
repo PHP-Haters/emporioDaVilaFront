@@ -23,3 +23,11 @@ p {
     font-family: "Joan", sans-serif;
     font-size: 18px;
 }
+
+.bg-granulado{
+    width: 100%;
+    background-size: cover;          /* preenche horizontal e vertical */
+    background-repeat: no-repeat;
+    background-position: center;     /* centraliza a parte importante */
+    background-image: url('/assets/Banner.svg');
+}

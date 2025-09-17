@@ -7,14 +7,8 @@
 // }
 
 // Banner com granulado
-
 .banner {
-  width: 100%;
   aspect-ratio: 1440 / 600;       /* mantém a proporção do container */
-  background-image: url('/assets/Banner.svg');
-  background-size: cover;          /* preenche horizontal e vertical */
-  background-repeat: no-repeat;
-  background-position: center;     /* centraliza a parte importante */
   color: $branco;
 
   .container {
