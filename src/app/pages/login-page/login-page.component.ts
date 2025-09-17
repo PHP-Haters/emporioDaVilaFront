@@ -28,7 +28,7 @@ export class LoginPageComponent {
       // 🔹 redireciona para a página inicial após 1 segundo
       setTimeout(() => {
         this.router.navigate(['index']);
-      }, 1000);
+      }, 1500);
 
     } else {
       this.mensagem = "Email ou senha incorretos!";

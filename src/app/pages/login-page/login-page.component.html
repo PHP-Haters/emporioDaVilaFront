@@ -29,11 +29,23 @@
       </div>
   
       <button type="submit" class="btn btn-success shadow-none border-0">Login</button>
-  
-      <!-- <p class="mt-3">
+
+      <!-- Renderiza mensagem, caso exista -->
+      <p 
+        class="mt-2 mb-2" 
+        *ngIf="mensagem"
+        [ngClass]="sucesso ? 'texto-verde' : 'text-danger'"
+      >
+        {{ mensagem }}
+      </p> 
+
+
+      <!-- Implementação futura
+      <p class="mt-3">
         Não possui uma conta?
         <a class="criarConta" href="#">Criar conta</a>
-      </p> -->
+      </p> 
+      -->
 
       <p class="mt-2">
         Deseja voltar?
