@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -16,7 +17,7 @@ export class LoginPageComponent {
   mensagem: string = "";
   sucesso: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   login(event: Event, email: string, senha: string) {
     event.preventDefault();
@@ -24,8 +25,9 @@ export class LoginPageComponent {
     if (email === this.usuarioPadrao && senha === this.senhaPadrao) {
       this.mensagem = "Login realizado com sucesso!";
       this.sucesso = true;
+      this.authService.login(); // Atualiza estado global do login
 
-      // 🔹 redireciona para a página inicial após 1 segundo
+      // redireciona para a página inicial após 1 segundo
       setTimeout(() => {
         this.router.navigate(['index']);
       }, 1500);
