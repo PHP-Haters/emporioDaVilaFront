@@ -1,3 +1,13 @@
+@use "../../../colorPallete.scss" as *;
+
+// .banner {
+//   width: 100%;
+//   aspect-ratio: 1440 / 600;       /* mantém a proporção do container */
+//   background: $gradiente-verde;  /* centraliza a parte importante */
+// }
+
+// Banner com granulado
+
 .banner {
   width: 100%;
   aspect-ratio: 1440 / 600;       /* mantém a proporção do container */
@@ -5,4 +15,22 @@
   background-size: cover;          /* preenche horizontal e vertical */
   background-repeat: no-repeat;
   background-position: center;     /* centraliza a parte importante */
+  color: $branco;
+
+  .container {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  h1 {
+    font-size: 64px;
+  }
+
+  p {
+    font-size: 26px;
+  }
 }
+
