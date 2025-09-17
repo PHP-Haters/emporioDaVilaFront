@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
+import { BannerComponent } from '../../components/banner/banner.component';
 
 @Component({
   selector: 'app-pagina-inicial',
-  imports: [HeaderComponent],
+  imports: [ HeaderComponent, BannerComponent],
   templateUrl: './pagina-inicial.component.html',
-  styleUrl: './pagina-inicial.component.scss'
+  styleUrls: ['./pagina-inicial.component.scss']
 })
 
 export class PaginaInicialComponent {
