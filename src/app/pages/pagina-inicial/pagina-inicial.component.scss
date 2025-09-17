@@ -1,10 +1,8 @@
-.banner-container {
+.banner {
   width: 100%;
-  overflow: hidden; /* esconde sobras horizontais */
-}
-
-.banner-container img {
-  width: 100%;
-  height: auto;     /* mantém proporção */
-  display: block;
+  aspect-ratio: 1440 / 600;       /* mantém a proporção do container */
+  background-image: url('/assets/Banner.svg');
+  background-size: cover;          /* preenche horizontal e vertical */
+  background-repeat: no-repeat;
+  background-position: center;     /* centraliza a parte importante */
 }
