@@ -29,7 +29,7 @@ export class LoginPageComponent {
 
       // redireciona para a página inicial após 1 segundo
       setTimeout(() => {
-        this.router.navigate(['index']);
+        this.router.navigate(['inicio']);
       }, 1500);
 
     } else {
