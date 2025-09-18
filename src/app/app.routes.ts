@@ -7,8 +7,8 @@ import { PaginaProdutosComponent } from './pages/pagina-produtos/pagina-produtos
 import { PaginaContatoComponent } from './pages/pagina-contato/pagina-contato.component';
 
 export const routes: Routes = [
-  { path: "", redirectTo: "/index", pathMatch: "full" },
-  { path: 'index', component: PaginaInicialComponent },
+  { path: "", redirectTo: "/inicio", pathMatch: "full" },
+  { path: 'inicio', component: PaginaInicialComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'produtos', component: PaginaProdutosComponent },
   { path: 'contato', component: PaginaContatoComponent }
