@@ -14,6 +14,7 @@
   .btn {
     color: $verde-escuro !important;
     border: 1px solid #fff; // botão branco com borda no topo
+    transition: 1s ease-out;
   }
 }
 
@@ -26,7 +27,12 @@
     color: #000 !important; // textos pretos após scroll
   }
 
+  a:hover{
+    color: $verde-escuro !important;
+  }
+
   .btn {
-    border: 1px solid #000; // botão preto com borda
+    background: $gradiente-verde;
+    color: $branco !important;
   }
 }

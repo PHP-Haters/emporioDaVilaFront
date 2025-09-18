@@ -6,3 +6,4 @@ $verde-escuro:   #638C04;
 
 // gradiente usando as variáveis
 $gradiente-verde: linear-gradient(150deg, $verde-amarelado 0%, $verde-escuro 100%);
+$gradiente-verde-invertido: linear-gradient(150deg, $verde-escuro 0%, $verde-amarelado 100%);
