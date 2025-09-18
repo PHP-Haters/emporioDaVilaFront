@@ -14,9 +14,13 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4{
     font-family: "Judson", sans-serif;
-    font-weight: 600
+    font-weight: 600;
+}
+
+h5, h6 {
+    font-family: "Jost", sans-serif;
 }
 
 p {
