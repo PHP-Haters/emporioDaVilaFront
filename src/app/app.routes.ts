@@ -5,13 +5,15 @@ import { PaginaInicialComponent } from './pages/pagina-inicial/pagina-inicial.co
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { PaginaProdutosComponent } from './pages/pagina-produtos/pagina-produtos.component';
 import { PaginaContatoComponent } from './pages/pagina-contato/pagina-contato.component';
+import { PaginaGerenciamentoComponent } from './pages/pagina-gerenciamento/pagina-gerenciamento.component';
 
 export const routes: Routes = [
   { path: "", redirectTo: "/inicio", pathMatch: "full" },
   { path: 'inicio', component: PaginaInicialComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'produtos', component: PaginaProdutosComponent },
-  { path: 'contato', component: PaginaContatoComponent }
+  { path: 'contato', component: PaginaContatoComponent },
+  { path: 'gerenciamento', component: PaginaGerenciamentoComponent }
 ];
 
 @NgModule({

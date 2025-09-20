@@ -18,7 +18,8 @@
   }
 }
 
-.navbar.scrolled {
+// Estilo somente aplicado em caso de não haver bg-granulado ativado
+.navbar.scrolled:not(.bg-granulado) {
   background-color: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 

@@ -1,4 +1,7 @@
-<nav class="navbar navbar-expand-lg fixed-top py-3 px-5" [ngClass]="{ 'scrolled': scrolled }">
+<nav
+  class="navbar navbar-expand-lg fixed-top py-3 px-5"
+  [ngClass]="{ 'scrolled': scrolled, 'bg-granulado': bgGranulado }"
+>
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarRightAlignExample">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex gap-5 fs-5 d-flex align-items-center">
@@ -16,8 +19,8 @@
         </li>
 
         <li class="nav-item">
-          <button 
-            type="button" 
+          <button
+            type="button"
             class="btn btn-light shadow-none fs-6 px-4 py-2"
             (click)="authService.isUserLoggedIn ? logout() : goToLogin()">
             {{ authService.isUserLoggedIn ? 'Logout' : 'Login' }}
