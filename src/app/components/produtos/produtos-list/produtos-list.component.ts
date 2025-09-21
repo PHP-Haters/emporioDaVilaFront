@@ -1,21 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProdutoCardComponent } from '../produto-card/produto-card.component';
 import { Produto } from '../../../model/produto.model';
-import { Categoria } from '../../../model/enum/categorias.enum';
+import { ProdutosService } from '../../../service/produtos/produtos.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-produtos-list',
-  imports: [ ProdutoCardComponent ],
   templateUrl: './produtos-list.component.html',
-  styleUrl: './produtos-list.component.scss'
+  styleUrls: ['./produtos-list.component.scss'],
+  imports: [ CommonModule, ProdutoCardComponent ]
 })
-export class ProdutosListComponent {
-  meuProduto: Produto = new Produto({
-    id: 1,
-    nome: 'Maçã',
-    valor: 3.50,
-    stock: true,
-    imagem: 'https://via.placeholder.com/150',
-    categoria: Categoria.FRUTAS
-  });
+export class ProdutosListComponent implements OnInit {
+
+  produtos: Produto[] = []; // Lista que será preenchida pelo backend
+
+  constructor(private produtosService: ProdutosService) {}
+
+  ngOnInit(): void {
+    this.carregarProdutos();
+  }
+
+  carregarProdutos(): void {
+    this.produtosService.getAllProdutos().subscribe({
+      next: (produtos) => {
+        this.produtos = produtos;
+      },
+      error: (err) => {
+        console.error('Erro ao carregar produtos:', err);
+      }
+    });
+  }
 }

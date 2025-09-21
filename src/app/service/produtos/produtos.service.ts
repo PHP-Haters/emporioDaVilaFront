@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Produto } from "../../model/produto.model";
 
 @Injectable({
     providedIn: 'root'
@@ -12,5 +13,9 @@ export class ProdutosService {
 
     getCategorias(): Observable<string[]> {
         return this.http.get<string[]>(`${this.url}/categorias`);
+    }
+
+    getAllProdutos(): Observable<Produto[]> {
+        return this.http.get<Produto[]>(`${this.url}`);
     }
 }

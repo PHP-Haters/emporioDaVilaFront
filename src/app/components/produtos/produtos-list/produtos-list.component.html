@@ -1,5 +1,7 @@
 <div class="produtos-list container">
     <div class="row">
-        <app-produto-card [produto]="meuProduto"></app-produto-card>
+        <div class="col-md-4 mb-3" *ngFor="let produto of produtos">
+            <app-produto-card [produto]="produto"></app-produto-card>
+        </div>
     </div>
 </div>
