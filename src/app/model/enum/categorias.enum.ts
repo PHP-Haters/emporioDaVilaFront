@@ -1,0 +1,8 @@
+export enum Categoria {
+    ESPECIARIAS = 'ESPECIARIAS',
+    FRUTAS = 'FRUTAS',
+    VERDURAS = 'VERDURAS',
+    CHAS = 'CHAS',
+    GRAOS = 'GRAOS',
+    SUPLEMENTOS = 'SUPLEMENTOS'
+}
