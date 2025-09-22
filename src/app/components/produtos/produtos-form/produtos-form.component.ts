@@ -42,7 +42,9 @@ export class ProdutosFormComponent implements OnInit {
     });
   }
 
-  salvar(): void {
+  salvar(event: Event): void {
+    event.preventDefault();
+    
     if (this.form.valid) {
       const produto: Produto = new Produto(this.form.value); // cria instância de Produto
 
