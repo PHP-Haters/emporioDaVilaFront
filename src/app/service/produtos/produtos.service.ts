@@ -18,4 +18,8 @@ export class ProdutosService {
     getAllProdutos(): Observable<Produto[]> {
         return this.http.get<Produto[]>(`${this.url}`);
     }
+
+    getProdutosPorCategoria(categoria: string): Observable<Produto[]> {
+        return this.http.get<Produto[]>(`${this.url}/categoria/${categoria}`);
+    }
 }

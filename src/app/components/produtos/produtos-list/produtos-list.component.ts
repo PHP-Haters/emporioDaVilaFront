@@ -11,13 +11,26 @@ import { CommonModule } from '@angular/common';
   imports: [ CommonModule, ProdutoCardComponent ]
 })
 export class ProdutosListComponent implements OnInit {
-
-  produtos: Produto[] = []; // Lista que será preenchida pelo backend
+  categorias: String[] = [];
+  produtos: Produto[] = [];
 
   constructor(private produtosService: ProdutosService) {}
 
   ngOnInit(): void {
+    this.carregarCategorias();
     this.carregarProdutos();
+  }
+
+  carregarCategorias(): void {
+    this.produtosService.getCategorias().subscribe({
+      next: (categorias) => {
+        // adiciona "todos" no início do array
+        this.categorias = ['TODOS', ...categorias];
+      },
+      error: (err) => {
+        console.error('Erro ao carregar categorias:', err);
+      }
+    });
   }
 
   carregarProdutos(): void {
@@ -30,4 +43,24 @@ export class ProdutosListComponent implements OnInit {
       }
     });
   }
+
+  filtrarCategoria(event: Event): void {
+  const select = event.target as HTMLSelectElement;
+  const categoria = select.value.toUpperCase(); // se você padronizou TODAS as categorias em maiúsculo
+  console.log('Categoria selecionada:', categoria);
+
+  if (categoria === 'TODOS') {
+    this.carregarProdutos(); // chama a rota que retorna todos
+  } else {
+    this.produtosService.getProdutosPorCategoria(categoria).subscribe({
+      next: (produtos) => {
+        this.produtos = produtos; // atualiza a lista de produtos
+      },
+      error: (err) => {
+        console.error('Erro ao carregar produtos por categoria:', err);
+      }
+    });
+  }
+}
+
 }
