@@ -1,8 +1,8 @@
 <app-header [bgGranulado]="true" ></app-header>
 
-<app-produtos-form></app-produtos-form>
+<app-produtos-form (produtoCriado)="produtosList.carregarProdutos()"></app-produtos-form>
 
-<app-produtos-list></app-produtos-list>
+<app-produtos-list #produtosList></app-produtos-list>
 
 <app-footer></app-footer>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ProdutosService } from '../../../service/produtos/produtos.service';
 import { CommonModule } from '@angular/common';
@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 export class ProdutosFormComponent implements OnInit {
   form!: FormGroup;
   categorias: string[] = [];
+  @Output() produtoCriado = new EventEmitter<void>();
 
   constructor(
     private fb: FormBuilder,
@@ -58,6 +59,9 @@ export class ProdutosFormComponent implements OnInit {
             stock: true,
             categoria: ''
           });
+
+          // Dispara evento para ser tratado pelo componente pai
+          this.produtoCriado.emit();
         },
         error: (err) => {
           console.error('Erro ao criar produto:', err);
