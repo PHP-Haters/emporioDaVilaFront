@@ -4,11 +4,12 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { ProdutosService } from '../../service/produtos/produtos.service';
 import { CommonModule } from '@angular/common';
 import { ProdutosListComponent } from '../../components/produtos/produtos-list/produtos-list.component';
+import { ProdutosFormComponent } from '../../components/produtos/produtos-form/produtos-form.component';
 
 @Component({
   selector: 'app-pagina-gerenciamento',
   standalone: true, // <-- importante para standalone components
-  imports: [CommonModule, HeaderComponent, ProdutosListComponent, FooterComponent], // CommonModule permite *ngFor etc.
+  imports: [CommonModule, HeaderComponent, ProdutosListComponent, ProdutosFormComponent, FooterComponent], // CommonModule permite *ngFor etc.
   templateUrl: './pagina-gerenciamento.component.html',
   styleUrls: ['./pagina-gerenciamento.component.scss']
 })

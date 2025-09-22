@@ -1,0 +1,61 @@
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="salvar()" class="produto-form">
+      <!-- Nome -->
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input
+          id="nome"
+          type="text"
+          class="form-control"
+          formControlName="nome"
+          placeholder="Digite o nome do produto"
+        />
+        <div *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched" class="text-danger">
+          O nome é obrigatório.
+        </div>
+      </div>
+    
+      <!-- Valor -->
+      <div class="mb-3">
+        <label for="valor" class="form-label">Valor</label>
+        <input
+          id="valor"
+          type="number"
+          class="form-control"
+          formControlName="valor"
+          placeholder="Digite o valor do produto"
+        />
+        <div *ngIf="form.get('valor')?.invalid && form.get('valor')?.touched" class="text-danger">
+          O valor deve ser maior ou igual a 0.
+        </div>
+      </div>
+    
+      <!-- Stock -->
+      <div class="form-check mb-3">
+        <input
+          id="stock"
+          type="checkbox"
+          class="form-check-input"
+          formControlName="stock"
+        />
+        <label for="stock" class="form-check-label">Disponível em estoque</label>
+      </div>
+    
+      <!-- Categoria -->
+      <div class="mb-3">
+        <label for="categoria" class="form-label">Categoria</label>
+        <select id="categoria" class="form-select" formControlName="categoria">
+          <option value="" disabled selected>Selecione uma categoria</option>
+          <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>
+        </select>
+        <div *ngIf="form.get('categoria')?.invalid && form.get('categoria')?.touched" class="text-danger">
+          A categoria é obrigatória.
+        </div>
+      </div>
+    
+      <!-- Botão -->
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+        Salvar Produto
+      </button>
+    </form>
+</div>
