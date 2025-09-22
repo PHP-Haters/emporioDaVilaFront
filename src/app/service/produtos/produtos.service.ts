@@ -23,7 +23,7 @@ export class ProdutosService {
         return this.http.get<Produto[]>(`${this.url}/categoria/${categoria}`);
     }
 
-    criarProduto(produto: Produto): Observable<Produto> {
-        return this.http.post<Produto>(this.url, produto);
+    criarProduto(produto: Produto): Observable<string> {
+        return this.http.post(this.url, produto, { responseType: 'text' });
     }
 }

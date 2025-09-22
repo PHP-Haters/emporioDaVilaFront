@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { ProdutosService } from '../../../service/produtos/produtos.service';
 import { CommonModule } from '@angular/common';
 import { Produto } from '../../../model/produto.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-produtos-form',
@@ -42,15 +43,15 @@ export class ProdutosFormComponent implements OnInit {
     });
   }
 
-  salvar(event: Event): void {
-    event.preventDefault();
-    
+  salvar(): void {
     if (this.form.valid) {
       const produto: Produto = new Produto(this.form.value); // cria instância de Produto
 
       this.produtosService.criarProduto(produto).subscribe({
         next: () => {
-          console.log('Produto criado com sucesso!');
+          Swal.fire('Sucesso!', 'Produto criado com sucesso!', 'success');
+
+          // Limpando o formulário
           this.form.reset({
             nome: '',
             valor: 0,
@@ -60,8 +61,9 @@ export class ProdutosFormComponent implements OnInit {
         },
         error: (err) => {
           console.error('Erro ao criar produto:', err);
+          Swal.fire('Erro!', 'Não foi possível criar o produto.', 'error');
         }
       });
-    }
+    } 
   }
 }
