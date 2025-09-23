@@ -3,12 +3,13 @@ import { ProdutoCardComponent } from '../produto-card/produto-card.component';
 import { Produto } from '../../../model/produto.model';
 import { ProdutosService } from '../../../service/produtos/produtos.service';
 import { CommonModule } from '@angular/common';
+import { ProdutosFilterComponent } from '../produtos-filter/produtos-filter.component';
 
 @Component({
   selector: 'app-produtos-list',
   templateUrl: './produtos-list.component.html',
   styleUrls: ['./produtos-list.component.scss'],
-  imports: [ CommonModule, ProdutoCardComponent ]
+  imports: [ CommonModule, ProdutoCardComponent, ProdutosFilterComponent ]
 })
 export class ProdutosListComponent implements OnInit {
   categorias: String[] = [];
@@ -17,20 +18,7 @@ export class ProdutosListComponent implements OnInit {
   constructor(private produtosService: ProdutosService) {}
 
   ngOnInit(): void {
-    this.carregarCategorias();
     this.carregarProdutos();
-  }
-
-  carregarCategorias(): void {
-    this.produtosService.getCategorias().subscribe({
-      next: (categorias) => {
-        // adiciona "todos" no início do array
-        this.categorias = ['TODOS', ...categorias];
-      },
-      error: (err) => {
-        console.error('Erro ao carregar categorias:', err);
-      }
-    });
   }
 
   carregarProdutos(): void {
@@ -44,11 +32,7 @@ export class ProdutosListComponent implements OnInit {
     });
   }
 
-  filtrarCategoria(event: Event): void {
-  const select = event.target as HTMLSelectElement;
-  const categoria = select.value.toUpperCase(); // se você padronizou TODAS as categorias em maiúsculo
-  console.log('Categoria selecionada:', categoria);
-
+  filtrarPorCategoria(categoria: string): void {
   if (categoria === 'TODOS') {
     this.carregarProdutos(); // chama a rota que retorna todos
   } else {
