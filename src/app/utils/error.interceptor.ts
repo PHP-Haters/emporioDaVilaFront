@@ -15,7 +15,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
       // Erro do backend (HTTP)
       else if (err.error && err.error.message) {
         // Aqui você pega a mensagem que vem do backend
-        errorMsg = err.error.message;
+        errorMsg = `${err.error.message}: ${err.error.validationErrors[0]}`;
       } 
       // Caso seja só texto
       else if (typeof err.error === 'string') {
