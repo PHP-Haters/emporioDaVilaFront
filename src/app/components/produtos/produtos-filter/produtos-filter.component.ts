@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ProdutosService } from '../../../service/produtos/produtos.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-produtos-filter',
@@ -25,7 +26,18 @@ export class ProdutosFilterComponent {
         this.categorias = ['TODOS', ...categorias];
       },
       error: (err) => {
-        console.error('Erro ao carregar categorias:', err);
+        let errorMsg = 'Erro desconhecido';
+
+        if (err.error instanceof ErrorEvent) {
+          // Erro de rede ou do lado do cliente
+          errorMsg = `Erro de rede: ${err.error.message}`;
+        } else {
+          // Erro vindo do servidor
+          errorMsg = `Erro ${err.status}: ${err.error?.message || err.message}`;
+        }
+
+        Swal.fire('Erro!', errorMsg, 'error');
+        console.error('Detalhes do erro:', err);
       }
     });
   }
