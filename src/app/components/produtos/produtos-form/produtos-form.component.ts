@@ -37,9 +37,6 @@ export class ProdutosFormComponent implements OnInit {
     this.produtosService.getCategorias().subscribe({
       next: (categorias) => {
         this.categorias = categorias;
-      },
-      error: (err) => {
-        console.error('Erro ao carregar categorias:', err);
       }
     });
   }
@@ -62,10 +59,6 @@ export class ProdutosFormComponent implements OnInit {
 
           // Dispara evento para ser tratado pelo componente pai
           this.produtoCriado.emit();
-        },
-        error: (err) => {
-          console.error('Erro ao criar produto:', err);
-          Swal.fire('Erro!', 'Não foi possível criar o produto.', 'error');
         }
       });
     } 

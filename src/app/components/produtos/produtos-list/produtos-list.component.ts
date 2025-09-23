@@ -25,26 +25,19 @@ export class ProdutosListComponent implements OnInit {
     this.produtosService.getAllProdutos().subscribe({
       next: (produtos) => {
         this.produtos = produtos;
-      },
-      error: (err) => {
-        console.error('Erro ao carregar produtos:', err);
       }
     });
   }
 
   filtrarPorCategoria(categoria: string): void {
-  if (categoria === 'TODOS') {
-    this.carregarProdutos(); // chama a rota que retorna todos
-  } else {
-    this.produtosService.getProdutosPorCategoria(categoria).subscribe({
-      next: (produtos) => {
-        this.produtos = produtos; // atualiza a lista de produtos
-      },
-      error: (err) => {
-        console.error('Erro ao carregar produtos por categoria:', err);
-      }
-    });
+    if (categoria === 'TODOS') {
+      this.carregarProdutos(); // chama a rota que retorna todos
+    } else {
+      this.produtosService.getProdutosPorCategoria(categoria).subscribe({
+        next: (produtos) => {
+          this.produtos = produtos; // atualiza a lista de produtos
+        }
+      });
+    }
   }
-}
-
 }
