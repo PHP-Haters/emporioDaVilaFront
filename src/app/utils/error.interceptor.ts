@@ -1,24 +1,25 @@
-import { Injectable } from '@angular/core';
-import {
-  HttpInterceptorFn,
-  HttpErrorResponse
-} from '@angular/common/http';
+import { HttpInterceptorFn, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import Swal from 'sweetalert2';
 
-// Interceptor no formato "function-based"
 export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     catchError((err: HttpErrorResponse) => {
       let errorMsg = 'Erro desconhecido';
 
+      // Erro de rede / cliente
       if (err.error instanceof ErrorEvent) {
-        // Erro de rede ou do lado do cliente
-        errorMsg = `Erro de rede: ${err.error.message}`;
-      } else {
-        // Erro do servidor
-        errorMsg = `Erro ${err.status}: ${err.error?.message || err.message}`;
+        errorMsg = err.error.message;
+      } 
+      // Erro do backend (HTTP)
+      else if (err.error && err.error.message) {
+        // Aqui você pega a mensagem que vem do backend
+        errorMsg = err.error.message;
+      } 
+      // Caso seja só texto
+      else if (typeof err.error === 'string') {
+        errorMsg = err.error;
       }
 
       Swal.fire('Erro!', errorMsg, 'error');
