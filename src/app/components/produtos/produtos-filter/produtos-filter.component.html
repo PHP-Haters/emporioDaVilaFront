@@ -1,6 +1,6 @@
 <!-- Seletor de categorias -->
 <div class="container mb-5 ">
-  <select #selectCategoria data-mdb-select-init (change)="onCategoriaChange(selectCategoria.value)">
+  <select class="form-select" #selectCategoria data-mdb-select-init (change)="onCategoriaChange(selectCategoria.value)">
     <option *ngFor="let categoria of categorias" [value]="categoria">
       {{ categoria }}
     </option>

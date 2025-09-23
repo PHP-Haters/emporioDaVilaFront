@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ProdutosService } from '../../../service/produtos/produtos.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-produtos-filter',
