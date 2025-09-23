@@ -25,20 +25,7 @@ export class ProdutosFilterComponent {
         // adiciona "todos" no início do array
         this.categorias = ['TODOS', ...categorias];
       },
-      error: (err) => {
-        let errorMsg = 'Erro desconhecido';
-
-        if (err.error instanceof ErrorEvent) {
-          // Erro de rede ou do lado do cliente
-          errorMsg = `Erro de rede: ${err.error.message}`;
-        } else {
-          // Erro vindo do servidor
-          errorMsg = `Erro ${err.status}: ${err.error?.message || err.message}`;
-        }
-
-        Swal.fire('Erro!', errorMsg, 'error');
-        console.error('Detalhes do erro:', err);
-      }
+      // Agora o erro é tratado e exposto por error.interceptor.ts
     });
   }
 
