@@ -31,7 +31,6 @@ export class ProdutosListComponent implements OnInit {
   removerProduto(id: number): void {
   this.produtosService.deleteProduto(id).subscribe({
     next: () => {
-      // remove localmente da lista
       this.produtos = this.produtos.filter(p => p.id !== id);
     },
     error: (err) => {
