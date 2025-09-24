@@ -9,7 +9,7 @@
     </p>
 
     <div class="d-flex align-items-center gap-5" *ngIf="authService.isUserLoggedIn">
-      <button type="button" class="btn btn-primary shadow-none">Editar</button>
+      <button type="button" class="btn btn-primary shadow-none" (click)="launchModal()" >Editar</button>
       <button type="button" class="btn btn-danger shadow-none">Deletar</button>
     </div>
   </div>
