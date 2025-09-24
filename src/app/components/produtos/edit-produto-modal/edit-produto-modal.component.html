@@ -1,23 +1,78 @@
 <div class="modal-header">
-
   <h5 class="modal-title">Editar Produto</h5>
-
   <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
-
 </div>
 
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-<div class="modal-body">
+  <div class="modal-body">
 
-  <p>Modal body text goes here.</p>
+    <!-- Nome -->
+    <div class="mb-3">
+      <label for="edit-produto-nome" class="form-label">Nome</label>
+      <input
+        id="edit-produto-nome"
+        name="edit-produto-nome"
+        type="text"
+        class="form-control"
+        formControlName="nome"
+        placeholder="Digite o nome do produto"
+      />
+      <div *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched" class="text-danger">
+        O nome é obrigatório.
+      </div>
+    </div>
 
-</div>
+    <!-- Valor -->
+    <div class="mb-3">
+      <label for="edit-produto-valor" class="form-label">Valor</label>
+      <input
+        id="edit-produto-valor"
+        name="edit-produto-valor"
+        type="number"
+        class="form-control"
+        formControlName="valor"
+        placeholder="Digite o valor do produto"
+      />
+      <div *ngIf="form.get('valor')?.invalid && form.get('valor')?.touched" class="text-danger">
+        O valor deve ser maior ou igual a 0.
+      </div>
+    </div>
 
+    <!-- Stock -->
+    <div class="form-check mb-3">
+      <input
+        id="edit-produto-stock"
+        name="edit-produto-stock"
+        type="checkbox"
+        class="form-check-input"
+        formControlName="stock"
+      />
+      <label for="edit-produto-stock" class="form-check-label">Disponível em estoque</label>
+    </div>
 
-<div class="modal-footer">
+    <!-- Categoria -->
+    <div class="mb-3">
+      <label for="edit-produto-categoria" class="form-label">Categoria</label>
+      <select
+        id="edit-produto-categoria"
+        name="edit-produto-categoria"
+        class="form-select"
+        formControlName="categoria"
+      >
+        <option value="" disabled selected>Selecione uma categoria</option>
+        <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>
+      </select>
+      <div *ngIf="form.get('categoria')?.invalid && form.get('categoria')?.touched" class="text-danger">
+        A categoria é obrigatória.
+      </div>
+    </div>
 
-  <button type="button" class="btn btn-danger shadow-none" (click)="modalRef.close()">Cancelar</button>
+  </div>
 
-  <button type="button" class="btn btn-green-gradient shadow-none">Salvar mudanças</button>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger shadow-none" (click)="modalRef.close()">Cancelar</button>
+    <button type="submit" class="btn btn-green-gradient shadow-none" [disabled]="form.invalid">Salvar mudanças</button>
+  </div>
 
-</div>
+</form>
