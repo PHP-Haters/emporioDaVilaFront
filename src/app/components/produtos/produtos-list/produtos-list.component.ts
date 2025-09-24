@@ -4,6 +4,7 @@ import { Produto } from '../../../model/produto.model';
 import { ProdutosService } from '../../../service/produtos/produtos.service';
 import { CommonModule } from '@angular/common';
 import { ProdutosFilterComponent } from '../produtos-filter/produtos-filter.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-produtos-list',
@@ -28,13 +29,12 @@ export class ProdutosListComponent implements OnInit {
       }
     });
   }
+  
   removerProduto(id: number): void {
   this.produtosService.deleteProduto(id).subscribe({
     next: () => {
       this.produtos = this.produtos.filter(p => p.id !== id);
-    },
-    error: (err) => {
-      console.error('Erro ao deletar produto:', err);
+      Swal.fire('Sucesso!', 'Produto deletado com sucesso!', 'success');
     }
   });
 }
