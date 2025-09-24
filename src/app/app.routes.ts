@@ -8,7 +8,7 @@ import { PaginaContatoComponent } from './pages/pagina-contato/pagina-contato.co
 import { PaginaGerenciamentoComponent } from './pages/pagina-gerenciamento/pagina-gerenciamento.component';
 
 export const routes: Routes = [
-  { path: "", redirectTo: "/inicio", pathMatch: "full" },
+    { path: "", redirectTo: "/inicio", pathMatch: "full" },
   { path: 'inicio', component: PaginaInicialComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'produtos', component: PaginaProdutosComponent },

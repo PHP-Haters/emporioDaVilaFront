@@ -32,6 +32,6 @@ export class ProdutosService {
         return this.http.put(this.url + '/' + produto.id, produto, { responseType: 'text' });
     }
     deleteProduto(id: number) {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
-}
+        return this.http.delete<void>(`${this.url}/${id}`);
+    }
 }
