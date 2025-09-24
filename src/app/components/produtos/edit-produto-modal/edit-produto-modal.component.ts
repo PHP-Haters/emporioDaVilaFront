@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +17,7 @@ export class EditProdutoModalComponent {
   @Input() produto!: Produto;
   form!: FormGroup;
   categorias: string[] = []
+  @Output() produtoEditado= new EventEmitter<void>();
 
   constructor(
     public modalRef: MdbModalRef<EditProdutoModalComponent>,
@@ -62,10 +63,23 @@ export class EditProdutoModalComponent {
 
   onSubmit(): void {
     if (this.form.valid) {
-      console.log('Produto editado:', this.form.value);
-      this.modalRef.close(this.form.value); // fecha o modal retornando os dados
+      
+    const produtoAtualizado: Produto = {
+      ...this.produto,
+      ...this.form.value
+    };
+
+    this.produtosService.editarProduto(produtoAtualizado).subscribe({
+      next: () => {
+        Swal.fire('Sucesso!', 'Produto editado com sucesso!', 'success');
+
+        this.produtoEditado.emit();
+        this.modalRef.close(produtoAtualizado); // retorna os dados atualizados
+      }
+    });
+      
     } else {
-      this.form.markAllAsTouched(); // marca todos os campos como tocados para exibir erros
+      this.form.markAllAsTouched(); // exibe erros nos campos do formulário
     }
   }
 }

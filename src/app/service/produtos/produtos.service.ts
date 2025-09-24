@@ -26,4 +26,8 @@ export class ProdutosService {
     criarProduto(produto: Produto): Observable<any> {
         return this.http.post(this.url, produto, { responseType: 'text' });
     }
+
+    editarProduto(produto: Produto): Observable<any> {
+        return this.http.put(this.url + '/' + produto.id, produto, { responseType: 'text' });
+    }
 }
