@@ -22,7 +22,8 @@ export class ProdutoCardComponent {
 
   launchModal(): void{
     this.modalRef = this.modalService.open(EditProdutoModalComponent, {
-      modalClass: 'modal-dialog-centered'
+      modalClass: 'modal-dialog-centered',
+      data: { produto: this.produto }
     })
   }
 }

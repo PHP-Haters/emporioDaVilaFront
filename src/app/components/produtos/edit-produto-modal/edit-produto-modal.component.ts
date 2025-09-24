@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ProdutosService } from '../../../service/produtos/produtos.service';
+import { Produto } from '../../../model/produto.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-produto-modal',
@@ -12,6 +14,7 @@ import { ProdutosService } from '../../../service/produtos/produtos.service';
   styleUrls: ['./edit-produto-modal.component.scss']
 })
 export class EditProdutoModalComponent {
+  @Input() produto!: Produto;
   form!: FormGroup;
   categorias: string[] = []
 
@@ -24,6 +27,7 @@ export class EditProdutoModalComponent {
   ngOnInit(): void {
     this.configForm();
     this.loadCategories();
+    this.populateForm();
   }
 
   configForm(): void {
@@ -41,6 +45,19 @@ export class EditProdutoModalComponent {
         this.categorias = categorias;
       },
     });
+  }
+
+  populateForm(): void {
+    if (this.produto) {
+      this.form.patchValue({
+        nome: this.produto.nome,
+        valor: this.produto.valor,
+        stock: this.produto.stock,
+        categoria: this.produto.categoria
+      });
+    } else {
+      Swal.fire('Erro!', 'Não foi possível carregar os dados do produto', 'error');
+    }
   }
 
   onSubmit(): void {
