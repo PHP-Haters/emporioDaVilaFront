@@ -6,8 +6,9 @@
 
 <div class="produtos-list container">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3 produtos-row align-items-center">
-    <div class="col d-flex justify-content-center" *ngFor="let produto of produtos">
+    <div class="col" *ngFor="let produto of produtos">
       <app-produto-card [produto]="produto"></app-produto-card>
     </div>
   </div>
 </div>
+
