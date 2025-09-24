@@ -22,9 +22,7 @@ export class PaginaGerenciamentoComponent implements OnInit {
     this.produtosService.getCategorias().subscribe({
       next: (data) => {
         this.categorias = data;
-        console.log('Categorias recebidas:', data); // <-- imprime no console
-      },
-      error: (err) => console.error('Erro ao buscar categorias', err)
+      }
     });
   }
 }
