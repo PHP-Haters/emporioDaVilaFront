@@ -8,18 +8,32 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
     catchError((err: HttpErrorResponse) => {
       let errorMsg = 'Erro desconhecido';
 
-      // Erro de rede / cliente
       if (err.error instanceof ErrorEvent) {
+        // Erro de rede / cliente
         errorMsg = err.error.message;
-      } 
-      // Erro do backend (HTTP)
-      else if (err.error && err.error.message) {
-        // Aqui você pega a mensagem que vem do backend
-        errorMsg = `${err.error.message}: ${err.error.validationErrors[0]}`;
-      } 
-      // Caso seja só texto
-      else if (typeof err.error === 'string') {
-        errorMsg = err.error;
+      } else {
+        let backendError: any = err.error;
+
+        // Se for string, tenta converter para JSON
+        if (typeof backendError === 'string') {
+          try {
+            backendError = JSON.parse(backendError);
+          } catch {
+            // se não for JSON válido, usa a string mesmo
+            backendError = { message: backendError };
+          }
+        }
+
+        // Se backend mandou mensagem estruturada
+        if (backendError?.message) {
+          if (backendError.validationErrors && backendError.validationErrors.length > 0) {
+            errorMsg = `${backendError.message}: ${backendError.validationErrors[0]}`;
+          } else {
+            errorMsg = backendError.message;
+          }
+        } else {
+          errorMsg = backendError;
+        }
       }
 
       Swal.fire('Erro!', errorMsg, 'error');
