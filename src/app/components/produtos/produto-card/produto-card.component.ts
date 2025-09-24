@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { EditProdutoModalComponent } from '../edit-produto-modal/edit-produto-modal.component';
 import { MdbModalModule, MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
+
 @Component({
   selector: 'app-produto-card',
   imports: [ CommonModule, MdbModalModule ],
@@ -15,13 +16,14 @@ export class ProdutoCardComponent {
   @Input() produto!: Produto;
   modalRef: MdbModalRef<EditProdutoModalComponent> | null =  null;
   @Output() edicaoConcluida = new EventEmitter<void>();
-
+  @Output() deletar = new EventEmitter<number>();
+  
   constructor(
     public authService: AuthService, 
     private modalService: MdbModalService
   ) {}
 
-  launchModal(): void{
+   launchModal(): void {
     this.modalRef = this.modalService.open(EditProdutoModalComponent, {
       modalClass: 'modal-dialog-centered',
       data: { produto: this.produto }
@@ -32,5 +34,9 @@ export class ProdutoCardComponent {
         this.edicaoConcluida.emit();
       }
     });
+  }
+
+  onDelete(): void {
+    this.deletar.emit(this.produto.id);
   }
 }

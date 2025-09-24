@@ -28,6 +28,17 @@ export class ProdutosListComponent implements OnInit {
       }
     });
   }
+  removerProduto(id: number): void {
+  this.produtosService.deleteProduto(id).subscribe({
+    next: () => {
+      // remove localmente da lista
+      this.produtos = this.produtos.filter(p => p.id !== id);
+    },
+    error: (err) => {
+      console.error('Erro ao deletar produto:', err);
+    }
+  });
+}
 
   filtrarPorCategoria(categoria: string): void {
     if (categoria === 'TODOS') {

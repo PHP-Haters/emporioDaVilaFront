@@ -8,6 +8,7 @@ import { Produto } from "../../model/produto.model";
 })
 export class ProdutosService {
     url = 'http://localhost:8080/produto';
+    apiUrl: any;
 
     constructor(private http: HttpClient) {}
 
@@ -30,4 +31,7 @@ export class ProdutosService {
     editarProduto(produto: Produto): Observable<any> {
         return this.http.put(this.url + '/' + produto.id, produto, { responseType: 'text' });
     }
+    deleteProduto(id: number) {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+}
 }

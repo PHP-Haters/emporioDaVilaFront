@@ -10,7 +10,8 @@
       <app-produto-card 
         [produto]="produto" 
         (edicaoConcluida)="carregarProdutos()"
-      ></app-produto-card>
+        (deletar)="removerProduto($event)">
+      </app-produto-card>
     </div>
   </div>
 </div>
