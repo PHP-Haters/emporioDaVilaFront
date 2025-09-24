@@ -7,7 +7,7 @@ import { MdbModalModule, MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit
 
 @Component({
   selector: 'app-produto-card',
-  imports: [ CommonModule, MdbModalModule, EditProdutoModalComponent ],
+  imports: [ CommonModule, MdbModalModule ],
   templateUrl: './produto-card.component.html',
   styleUrl: './produto-card.component.scss'
 })
