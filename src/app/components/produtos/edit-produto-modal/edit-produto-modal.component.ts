@@ -17,7 +17,7 @@ export class EditProdutoModalComponent {
   @Input() produto!: Produto;
   form!: FormGroup;
   categorias: string[] = []
-  @Output() produtoEditado= new EventEmitter<void>();
+  @Output() edicaoConcluida = new EventEmitter<void>();
 
   constructor(
     public modalRef: MdbModalRef<EditProdutoModalComponent>,
@@ -73,7 +73,7 @@ export class EditProdutoModalComponent {
       next: () => {
         Swal.fire('Sucesso!', 'Produto editado com sucesso!', 'success');
 
-        this.produtoEditado.emit();
+        this.edicaoConcluida.emit();
         this.modalRef.close(produtoAtualizado); // retorna os dados atualizados
       }
     });

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Produto } from '../../../model/produto.model';
 import { AuthService } from '../../../service/auth.service';
 import { CommonModule } from '@angular/common';
@@ -14,6 +14,7 @@ import { MdbModalModule, MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit
 export class ProdutoCardComponent {
   @Input() produto!: Produto;
   modalRef: MdbModalRef<EditProdutoModalComponent> | null =  null;
+  @Output() edicaoConcluida = new EventEmitter<void>();
 
   constructor(
     public authService: AuthService, 
@@ -24,6 +25,12 @@ export class ProdutoCardComponent {
     this.modalRef = this.modalService.open(EditProdutoModalComponent, {
       modalClass: 'modal-dialog-centered',
       data: { produto: this.produto }
-    })
+    });
+
+    this.modalRef.onClose.subscribe((resultado) => {
+      if(resultado) {
+        this.edicaoConcluida.emit();
+      }
+    });
   }
 }
