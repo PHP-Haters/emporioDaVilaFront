@@ -1,7 +1,7 @@
 <div class="container">
-    <form [formGroup]="form" (ngSubmit)="salvar()" class="produto-form">
+    <form [formGroup]="form" (ngSubmit)="salvar()" class="row g-3 align-items-end">
       <!-- Nome -->
-      <div class="mb-3">
+      <div class="col-md-3">
         <label for="nome" class="form-label">Nome</label>
         <input
           id="nome"
@@ -16,7 +16,7 @@
       </div>
     
       <!-- Valor -->
-      <div class="mb-3">
+      <div class="col-md-2">
         <label for="valor" class="form-label">Valor</label>
         <input
           id="valor"
@@ -31,18 +31,20 @@
       </div>
     
       <!-- Stock -->
-      <div class="form-check mb-3">
-        <input
+      <div class="col-md-2 d-flex align-items-center">
+        <div class="form-check">
+          <input
           id="stock"
           type="checkbox"
           class="form-check-input"
           formControlName="stock"
-        />
-        <label for="stock" class="form-check-label">Disponível em estoque</label>
+          />
+          <label for="stock" class="form-check-label">Disponível em estoque</label>
+        </div>
       </div>
     
       <!-- Categoria -->
-      <div class="mb-3">
+      <div class="col-md-3">
         <label for="categoria" class="form-label">Categoria</label>
         <select id="categoria" class="form-select" formControlName="categoria">
           <option value="" disabled selected>Selecione uma categoria</option>
@@ -54,8 +56,10 @@
       </div>
     
       <!-- Botão -->
-      <button type="submit" class="btn btn-green-gradient shadow-none fs-6 px-4 py-2" [disabled]="form.invalid">
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-green-gradient shadow-none fs-6 px-4 py-2" [disabled]="form.invalid">
         Salvar Produto
-      </button>
+        </button>
+      </div>
     </form>
 </div>
