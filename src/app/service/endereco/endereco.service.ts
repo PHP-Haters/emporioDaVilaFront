@@ -11,33 +11,23 @@ export class EnderecoService {
 
   constructor(private http: HttpClient) {}
 
-  // Criar endereço
   criarEndereco(endereco: Endereco): Observable<any> {
     return this.http.post(this.url, endereco, { responseType: 'text' });
   }
 
-  // Buscar todos os endereços
   getAllEnderecos(): Observable<Endereco[]> {
     return this.http.get<Endereco[]>(this.url);
   }
 
-  // Buscar endereço por ID
   getEnderecoById(id: number): Observable<Endereco> {
     return this.http.get<Endereco>(`${this.url}/${id}`);
   }
 
-  // Atualizar endereço
   editarEndereco(endereco: Endereco): Observable<any> {
     return this.http.put(`${this.url}/${endereco.id}`, endereco, { responseType: 'text' });
   }
 
-  // Deletar endereço
   deleteEndereco(id: number): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`);
-  }
-
-  // Buscar endereços de um usuário
-  getEnderecosByUsuarioId(usuarioId: number): Observable<Endereco[]> {
-    return this.http.get<Endereco[]>(`${this.url}/usuario/${usuarioId}`);
   }
 }
