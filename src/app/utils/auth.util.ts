@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-
+import { Usuario } from "../model/usuario.model";
 @Injectable({ providedIn: 'root' })
-export class AuthService {
+export class AuthUtil {
   private _isUserLoggedIn: boolean = false;
 
   constructor() {
@@ -13,9 +13,10 @@ export class AuthService {
     return this._isUserLoggedIn;
   }
 
-  login() {
-    this._isUserLoggedIn = true;
-    localStorage.setItem('isUserLoggedIn', 'true');
+  login(usuarioLogado: Usuario) {
+    localStorage.setItem('userId', String(usuarioLogado.id));
+    localStorage.setItem("isAdmin", String(usuarioLogado.admin));
+
   }
 
   logout() {
