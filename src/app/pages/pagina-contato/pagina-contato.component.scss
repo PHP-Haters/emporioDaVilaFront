@@ -1,0 +1,21 @@
+@use '../../../colorPallete.scss' as *;
+
+.container-holder {
+    width: 100vw;
+
+    .container {
+        width: 100% !important;
+        max-width: 70% !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: $preto;
+    
+        .right {
+            text-align: right;
+        }
+            
+    }
+    
+}
+
