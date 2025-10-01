@@ -14,7 +14,7 @@ export class HeaderComponent {
   @Input() bgGranulado : boolean = false;
   scrolled: boolean = false;
 
-  constructor(private router: Router, public authService: AuthUtil) {}
+  constructor(private router: Router, public authUtil: AuthUtil) {}
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -26,6 +26,6 @@ export class HeaderComponent {
   }
 
   logout() {
-    this.authService.logout();
+    this.authUtil.logout();
   }
 }
