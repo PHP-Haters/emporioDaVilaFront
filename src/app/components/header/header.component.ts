@@ -1,7 +1,7 @@
 import { Component, HostListener, Input } from '@angular/core';
 import { Router } from '@angular/router';  // <-- Import obrigatório!
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../../utils/auth.util';
+import { AuthUtil } from '../../utils/auth.util';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +14,7 @@ export class HeaderComponent {
   @Input() bgGranulado : boolean = false;
   scrolled: boolean = false;
 
-  constructor(private router: Router, public authService: AuthService) {}
+  constructor(private router: Router, public authService: AuthUtil) {}
 
   @HostListener('window:scroll', [])
   onWindowScroll() {

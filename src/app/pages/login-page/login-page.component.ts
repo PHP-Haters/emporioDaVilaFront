@@ -26,27 +26,22 @@ export class LoginPageComponent {
    
    usuario.email = email;
    usuario.senha = senha;
-   const answer = this.usuarioService.login(usuario).subscribe({
+   this.usuarioService.login(usuario).subscribe({
     next:  (user) => {
         this.usuarioLogado = user;
         this.authUtil.login(this.usuarioLogado);
+        
+        this.sucesso = true;
+        this.mensagem = "Login bem sucedido!";
+        // redireciona para a página inicial após 1 segundo
+      this.redirectToIndex();
     }
    });
-  //todo
+  }
 
-    // if (email === this.usuarioPadrao && senha === this.senhaPadrao) {
-    //   this.mensagem = "Login realizado com sucesso!";
-    //   this.sucesso = true;
-    //   this.authService.login(); // Atualiza estado global do login
-
-    //   // redireciona para a página inicial após 1 segundo
-    //   setTimeout(() => {
-    //     this.router.navigate(['inicio']);
-    //   }, 1500);
-
-    // } else {
-    //   this.mensagem = "Email ou senha incorretos!";
-    //   this.sucesso = false;
-    // }
+  redirectToIndex() {
+    setTimeout(() => {
+        this.router.navigate(['inicio']);
+      }, 1000);
   }
 }

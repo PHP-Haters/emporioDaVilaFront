@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Produto } from '../../../model/produto.model';
-import { AuthService } from '../../../utils/auth.util';
+import { AuthUtil } from '../../../utils/auth.util';
 import { CommonModule } from '@angular/common';
 import { EditProdutoModalComponent } from '../edit-produto-modal/edit-produto-modal.component';
 import { MdbModalModule, MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
@@ -19,7 +19,7 @@ export class ProdutoCardComponent {
   @Output() deletar = new EventEmitter<number>();
   
   constructor(
-    public authService: AuthService, 
+    public authService: AuthUtil, 
     private modalService: MdbModalService
   ) {}
 
