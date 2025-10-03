@@ -27,5 +27,6 @@ export class HeaderComponent {
 
   logout() {
     this.authUtil.logout();
+    this.router.navigate(['/inicio']);
   }
 }
