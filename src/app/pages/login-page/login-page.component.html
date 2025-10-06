@@ -1,4 +1,4 @@
-<div class="pseudo-body bg-granulado">
+<div *ngIf="! isRegistering" class="pseudo-body bg-granulado">
   <main class="w-100 m-auto form-container" style="max-width: 400px;">
     <form (ngSubmit)="login($event, emailInput.value, senhaInput.value)">
       <div class="form-floating mb-3">
@@ -19,7 +19,7 @@
           id="senha"
           placeholder="senha"
           #senhaInput
-          required>
+          required >
         <label for="senha">Senha</label>
       </div>
   
@@ -39,17 +39,106 @@
         {{ mensagem }}
       </p> 
 
-
-      <!-- Implementação futura
       <p class="mt-3">
         Não possui uma conta?
-        <a class="criarConta" href="#">Criar conta</a>
+        <a class="criarConta" (click)="toggleMode()">Criar conta</a>
       </p> 
-      -->
 
       <p class="mt-2">
         Deseja voltar?
-        <a class="login-link" href="index">Voltar</a>
+        <a class="login-link" routerLink="/inicio" >Voltar</a>
+      </p>
+  
+    </form>
+  </main>
+</div>
+
+
+  
+
+<!--* CODIGO DO REGISTRAR -->
+
+
+
+<div *ngIf="isRegistering" class="pseudo-body bg-granulado">
+  <main class="w-100 m-auto form-container" style="max-width: 400px;">
+    <form (ngSubmit)="register($event, emailInput.value, senhaInput.value, confirmarInput.value, nomeInput.value, teleInput.value)">
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          placeholder="Seu nome"
+          #nomeInput
+          required>
+        <label for="nome">Nome</label>
+      </div>
+      
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="seu-email@gmail.com"
+          #emailInput
+          required>
+        <label for="email">Email</label>
+      </div>
+  
+      <div class="form-floating mb-3">
+        <input
+          type="tel"
+          class="form-control"
+          id="telefone"
+          placeholder="45 9 0123-4567"
+          #teleInput
+          required>
+        <label for="telefone">telefone</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input
+          type="password"
+          class="form-control"
+          id="senha"
+          placeholder="senha"
+          #senhaInput
+          required>
+        <label for="senha">Senha</label>
+      </div>
+  
+      <div class="form-floating mb-3">
+        <input
+          type="password"
+          class="form-control"
+          id="confirmarSenha"
+          placeholder="confirmarSenha"
+          #confirmarInput
+          required>
+        <label for="confirmarSenha">Confirmar senha</label>
+      </div>
+  
+      <button type="submit" class="btn btn-success shadow-none border-0">Login</button>
+
+    
+      <p 
+        class="mt-2 mb-2" 
+        *ngIf="mensagem"
+        [ngClass]="sucesso ? 'texto-verde' : 'text-danger'"
+      >
+        {{ mensagem }}
+      </p> 
+
+
+
+      <p class="mt-3">
+        Já  possui uma conta?
+        <a class="irParaLogin" (click)="toggleMode()">Voltar ao login</a>
+      </p> 
+
+      <p class="mt-2">
+        Deseja voltar?
+        <a class="login-link" routerLink="/inicio" >Voltar</a>
       </p>
   
     </form>
