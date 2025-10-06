@@ -2,11 +2,12 @@ import { Component, HostListener, Input } from '@angular/core';
 import { Router } from '@angular/router';  // <-- Import obrigatório!
 import { CommonModule } from '@angular/common';
 import { AuthUtil } from '../../utils/auth.util';
+import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [ CommonModule, MdbDropdownModule ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
