@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthUtil } from '../../utils/auth.util';
@@ -8,7 +8,7 @@ import { Usuario } from '../../model/usuario.model';
 
 @Component({
   selector: 'app-login-page',
-  imports: [ FormsModule, CommonModule ],
+  imports: [ FormsModule, CommonModule,RouterModule],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss'
 })
