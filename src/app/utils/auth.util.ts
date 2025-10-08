@@ -19,6 +19,14 @@ export class AuthUtil {
     return Boolean(localStorage.getItem("isAdmin"));
   }
 
+  get loggedUserId() {
+    if(localStorage.getItem('userId')){
+      return localStorage.getItem('userId');
+    } else {
+      return null;
+    }
+  }
+
   login(usuarioLogado: Usuario) {
     localStorage.setItem('userId', String(usuarioLogado.id));
     localStorage.setItem("isAdmin", String(usuarioLogado.admin));

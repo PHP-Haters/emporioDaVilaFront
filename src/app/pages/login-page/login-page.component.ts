@@ -30,7 +30,7 @@ export class LoginPageComponent {
 
   mensagem: string = "";
   sucesso: boolean = false;
-  usuarioLogado: Usuario = new Usuario;
+  usuarioLogado!: Usuario;
 
 
   constructor(private router: Router, private authUtil: AuthUtil, private usuarioService: UsuarioService) {}
@@ -47,13 +47,13 @@ export class LoginPageComponent {
    usuario.senha = senha;
    this.usuarioService.login(usuario).subscribe({
     next:  (user) => {
-        this.usuarioLogado = user;
+        this.usuarioLogado = new Usuario(user); // usa o construtor pra mapear
         this.authUtil.login(this.usuarioLogado);
-        
+
         this.sucesso = true;
         this.mensagem = "Login bem sucedido!";
         // redireciona para a página inicial após 1 segundo
-      this.redirectToIndex();
+        this.redirectToIndex();
     }
    });
   }

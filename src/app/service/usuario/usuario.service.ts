@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Usuario } from "../../model/usuario.model";
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,8 @@ export class UsuarioService {
     return this.http.delete<void>(`${this.url}/${id}`);
   }
 
-  login(usuario: Usuario): Observable<any> {
-    return this.http.post(`${this.url}/login`, usuario, { responseType: 'text' });
+  
+  login(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(`${this.url}/login`, usuario);
   }
 }
