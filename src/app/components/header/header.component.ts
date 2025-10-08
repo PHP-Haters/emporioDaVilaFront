@@ -3,6 +3,7 @@ import { Router } from '@angular/router';  // <-- Import obrigatório!
 import { CommonModule } from '@angular/common';
 import { AuthUtil } from '../../utils/auth.util';
 import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-header',
@@ -27,7 +28,26 @@ export class HeaderComponent {
   }
 
   logout() {
-    this.authUtil.logout();
-    this.router.navigate(['/inicio']);
+        Swal.fire({
+      title: 'Tem certeza que deseja sair?',
+      text: 'Você será deslogado e precisará fazer o login novamente',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sim',
+      cancelButtonText: 'Não',
+      confirmButtonColor: '#638C04',
+      cancelButtonColor: '#d33',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.authUtil.logout();
+        this.router.navigate(['/inicio']);
+        Swal.fire({
+          title: 'Logout realizado!',
+          icon: 'success',
+          timer: 1000,
+          showConfirmButton: false,
+        });
+      }
+    });
   }
 }
