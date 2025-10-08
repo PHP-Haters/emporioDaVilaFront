@@ -1,0 +1,19 @@
+@use "../../../colorPallete.scss" as *;
+
+.container{
+    margin-top: 200px !important;
+    margin-bottom: 150px !important;
+
+    h1 {
+        font-family: "Jost", sans-serif;
+    }
+}
+
+#btnEditUser {
+    background: $gradiente-verde !important;
+    color: $branco;
+}
+
+#btnEditUser:hover {
+    opacity: 0.85;
+}
