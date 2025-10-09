@@ -11,6 +11,8 @@
             id="typeName"
             class="form-control"
             placeholder="Seu nome"
+            [(ngModel)]="loggedUser.nome"
+            name="nome"
             />
         </div>
 
@@ -21,17 +23,19 @@
             id="typeEmail"
             class="form-control"
             placeholder="Seu email"
+            [(ngModel)]="loggedUser.email"
+            name="email"
             />
         </div>
 
         <!-- Telefone -->
         <div class="mb-4">
             <input
-            type="tel"
-            class="form-control"
-            placeholder="(XX) XXXXX-XXXX"
-            [(ngModel)]="telefone"
-            (input)="formatTelefone($event)"
+                type="tel"
+                class="form-control"
+                placeholder="(XX) XXXXX-XXXX"
+                [ngModel]="loggedUser.telefone"
+                name="telefone"
             />
         </div>
 
@@ -42,6 +46,8 @@
             type="password"
             class="form-control"
             placeholder="Sua senha"
+            [(ngModel)]="loggedUser.senha"
+            name="senha"
             />
             <i
             class="far fa-eye position-absolute top-50 end-0 translate-middle-y pe-3"

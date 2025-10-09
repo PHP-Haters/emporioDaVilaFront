@@ -33,7 +33,7 @@ export class PaginaUsuarioComponent implements OnInit {
 
     this.usuarioService.getUsuarioById(this.currentUserId).subscribe({
       next: (usuario) => {
-        console.log(usuario);
+        this.loggedUser = usuario;
       },
     });
   }
@@ -41,25 +41,6 @@ export class PaginaUsuarioComponent implements OnInit {
   togglePassword(input: HTMLInputElement) {
     this.showPassword = !this.showPassword;
     input.type = this.showPassword ? 'text' : 'password';
-  }
-
-  formatTelefone(event: Event) {
-    const input = event.target as HTMLInputElement;
-    let digits = input.value.replace(/\D/g, ''); // remove tudo que não é número
-
-    // limita a 11 dígitos
-    if (digits.length > 11) digits = digits.substring(0, 11);
-
-    if (digits.length > 6) {
-      input.value = `(${digits.substring(0, 2)}) ${digits.substring(
-        2,
-        digits.length - 4
-      )}-${digits.substring(digits.length - 4)}`;
-    } else if (digits.length > 2) {
-      input.value = `(${digits.substring(0, 2)}) ${digits.substring(2)}`;
-    } else if (digits.length > 0) {
-      input.value = `(${digits}`;
-    }
   }
 
 }
