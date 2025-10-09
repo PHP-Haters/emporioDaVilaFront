@@ -5,6 +5,7 @@ import { AuthUtil } from '../../utils/auth.util';
 import { UsuarioService } from '../../service/usuario/usuario.service';
 import { Usuario } from '../../model/usuario.model';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-pagina-usuario',
@@ -43,4 +44,11 @@ export class PaginaUsuarioComponent implements OnInit {
     input.type = this.showPassword ? 'text' : 'password';
   }
 
+  atualizarUsuario() {
+    this.usuarioService.editarUsuario(this.loggedUser).subscribe({
+      next: (response) => {
+        Swal.fire('Successo!', response, 'success');
+      }
+    });
+  }
 }
