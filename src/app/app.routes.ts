@@ -6,14 +6,18 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { PaginaProdutosComponent } from './pages/pagina-produtos/pagina-produtos.component';
 import { PaginaContatoComponent } from './pages/pagina-contato/pagina-contato.component';
 import { PaginaGerenciamentoComponent } from './pages/pagina-gerenciamento/pagina-gerenciamento.component';
+import { PaginaGerenciamentoPedidosComponent } from './pages/pagina-gerenciamento-pedidos/pagina-gerenciamento-pedidos.component';
+import { PaginaGerenciamentoUsuariosComponent } from './pages/pagina-gerenciamento-usuarios/pagina-gerenciamento-usuarios.component';
 
 export const routes: Routes = [
-    { path: "", redirectTo: "/inicio", pathMatch: "full" },
+  { path: "", redirectTo: "/inicio", pathMatch: "full" },
   { path: 'inicio', component: PaginaInicialComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'produtos', component: PaginaProdutosComponent },
   { path: 'contato', component: PaginaContatoComponent },
-  { path: 'gerenciamento', component: PaginaGerenciamentoComponent }
+  { path: 'gerenciamento', component: PaginaGerenciamentoComponent },
+  { path: 'gerenciamento/pedidos', component: PaginaGerenciamentoPedidosComponent },
+  { path: 'gerenciamento/usuarios', component: PaginaGerenciamentoUsuariosComponent }
 ];
 
 @NgModule({
