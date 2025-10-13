@@ -14,8 +14,13 @@
         <li class="nav-item">
           <a class="nav-link" href="contato" tabindex="-1">Contato</a>
         </li>
-        <li class="nav-item" *ngIf="authUtil.isUserAdmin">
-          <a class="nav-link" href="gerenciamento" tabindex="-1">Gerenciamento</a>
+        <li class="nav-item dropdown" *ngIf="authUtil.isUserAdmin">
+          <a class="nav-link dropdown-toggle" href="gerenciamento" tabindex="-1" role="button" data-bs-toggle="dropdown" aria-expanded="false">Gerenciamento</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="gerenciamento">Produtos</a></li>
+            <li><a class="dropdown-item" href="gerenciamento/pedidos">Pedidos</a></li>
+            <li><a class="dropdown-item" href="gerenciamento/usuarios">Usuários</a></li>
+          </ul>
         </li>
 
         <li class="nav-item">

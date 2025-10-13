@@ -9,13 +9,13 @@ import { PaginaGerenciamentoComponent } from './pages/pagina-gerenciamento/pagin
 import { PaginaUsuarioComponent } from './pages/pagina-usuario/pagina-usuario.component';
 
 export const routes: Routes = [
-    { path: "", redirectTo: "/inicio", pathMatch: "full" },
+  { path: "", redirectTo: "/inicio", pathMatch: "full" },
   { path: 'inicio', component: PaginaInicialComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'produtos', component: PaginaProdutosComponent },
   { path: 'contato', component: PaginaContatoComponent },
   { path: 'gerenciamento', component: PaginaGerenciamentoComponent },
-  { path: 'usuario', component: PaginaUsuarioComponent }
+  { path: 'usuario', component: PaginaUsuarioComponent}
 ];
 
 @NgModule({
