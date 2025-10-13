@@ -1,1 +1,39 @@
 <app-header></app-header>
+
+<app-banner
+    type="contato"
+    imagem="assets/bannerContactImg.png"
+    alt="homem segurando suplementos"
+    titulo="Entre em contato"
+    subtitulo="Cheque os meios disponíveis abaixo">
+</app-banner>
+
+<div class="container-holder">
+    <div class="container my-5 gap-5">
+
+        <div class="left">
+            <h3>Unidade República</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=..."
+                width="100%" height="250" style="border:0;" allowfullscreen loading="lazy"></iframe>
+            
+            <h3 class="mt-4">Unidade Vila A</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=..."
+              width="100%" height="250" style="border:0;" allowfullscreen loading="lazy"></iframe>
+        </div>
+
+        <div class="right">
+            <h2 class="mb-4">Estamos aqui para te ajudar</h2>
+            <form>
+                <input type="text" placeholder="Seu nome">
+                <input type="email" placeholder="Seu email">
+                <input type="tel" placeholder="Telefone">
+                <input type="text" placeholder="Assunto">
+                <textarea placeholder="Escreva sua mensagem"></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<app-footer></app-footer>

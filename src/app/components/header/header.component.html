@@ -24,12 +24,33 @@
         </li>
 
         <li class="nav-item">
-          <button
-            type="button"
-            class="btn btn-light shadow-none fs-6 px-4 py-2"
-            (click)="authUtil.isUserAdmin ? logout() : goToLogin()">
-            {{ authUtil.isUserLoggedIn ? 'Logout' : 'Login' }}
-          </button>
+          
+          @if(!authUtil.isUserLoggedIn){
+            <button
+              type="button"
+              class="btn btn-light shadow-none fs-6 px-4 py-2"
+              (click)="goToLogin()"
+            > Login </button>
+          } @else {
+            <div mdbDropdown class="dropdown">
+              <button
+                class="btn btn-light shadow-none rounded-circle d-flex align-items-center justify-content-center p-2 fs-6"
+                type="button"
+                id="dropdownMenuButton"
+                aria-expanded="false"
+                mdbDropdownToggle
+                style="width: 40px; height: 40px;"
+              >
+                <i class="fas fa-user"></i>
+              </button>
+              <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="usuario">Seu perfil</a></li>
+                <li><hr class="dropdown-divider my-0" /></li>
+                <li><a class="dropdown-item cursor-pointer" (click)="logout()" style="cursor: pointer;">Logout</a></li>
+              </ul>
+            </div>
+          }
+
         </li>
       </ul>
     </div>

@@ -1,0 +1,70 @@
+<app-header [bgGranulado]="true"></app-header>
+
+<div class="container">
+    <form class="p-5 shadow rounded-3" style="margin: auto;" (ngSubmit)="atualizarUsuario()">
+        <h1 class="text-center mb-5">Seus Dados</h1>
+        
+        <!-- Nome -->
+        <div class="mb-4">
+            <input
+            type="text"
+            id="typeName"
+            class="form-control"
+            placeholder="Seu nome"
+            [(ngModel)]="loggedUser.nome"
+            name="nome"
+            />
+        </div>
+
+        <!-- Email -->
+        <div class="mb-4">
+            <input
+            type="email"
+            id="typeEmail"
+            class="form-control"
+            placeholder="Seu email"
+            [(ngModel)]="loggedUser.email"
+            name="email"
+            />
+        </div>
+
+        <!-- Telefone -->
+        <div class="mb-4">
+            <input
+                type="tel"
+                class="form-control"
+                placeholder="(XX) XXXXX-XXXX"
+                [ngModel]="loggedUser.telefone"
+                name="telefone"
+            />
+        </div>
+
+        <!-- Senha -->
+        <div class="mb-4 position-relative">
+            <input
+            #passwordInput
+            type="password"
+            class="form-control"
+            placeholder="Sua senha"
+            [(ngModel)]="loggedUser.senha"
+            name="senha"
+            />
+            <i
+            class="far fa-eye position-absolute top-50 end-0 translate-middle-y pe-3"
+            [class.fa-eye]="!showPassword"
+            [class.fa-eye-slash]="showPassword"
+            (pointerdown)="togglePassword(passwordInput)"
+            style="cursor: pointer;"
+            ></i>
+        </div>
+
+        <!-- Botão de submissão -->
+        <button type="submit" class="btn shadow-none" id="btnEditUser">
+            Atualizar dados
+        </button>
+
+    </form>
+
+</div>
+
+<app-footer></app-footer>

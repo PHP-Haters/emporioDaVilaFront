@@ -2,21 +2,20 @@
 
 .form-container {
     width: 300px;
-    height: 350px;
-    background: rgb(255, 255, 255);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: white;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-    position: relative;         /* garante que fique acima do granulado */
+    position: relative;
     z-index: 1;
+    padding: 2rem;
+    height: auto;
 }
 
 .pseudo-body {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; 
     min-height: 100vh;
+    padding-top: 3rem; 
 }
 
 label {
@@ -28,6 +27,7 @@ button{
     background: $gradiente-verde;
 }
 
-.login-link{
-    color: $verde-escuro;
+.criarConta, .irParaLogin, .login-link{
+  cursor: pointer;
+  color: $verde-escuro;
 }
