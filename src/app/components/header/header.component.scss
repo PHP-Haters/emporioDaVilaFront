@@ -18,6 +18,16 @@
   }
 }
 
+.menu-gerenciamento {
+  color: #fff;
+  cursor: pointer;
+}
+
+.dropdown-item-gerenciamento {
+  cursor: pointer;
+  color: #ffffff;
+}
+
 // Estilo somente aplicado em caso de não haver bg-granulado ativado
 .navbar.scrolled:not(.bg-granulado) {
   background-color: #fff;

@@ -14,14 +14,16 @@
         <li class="nav-item">
           <a class="nav-link" href="contato" tabindex="-1">Contato</a>
         </li>
-        <li class="nav-item dropdown" *ngIf="authUtil.isUserAdmin">
-          <a class="nav-link dropdown-toggle" href="gerenciamento" tabindex="-1" role="button" data-bs-toggle="dropdown" aria-expanded="false">Gerenciamento</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="gerenciamento">Produtos</a></li>
-            <li><a class="dropdown-item" href="gerenciamento/pedidos">Pedidos</a></li>
-            <li><a class="dropdown-item" href="gerenciamento/usuarios">Usuários</a></li>
-          </ul>
-        </li>
+        <div mdbDropdown class="dropdown" clickOutSide (clickOutside)="clickedOutSide()">
+          <div class="menu-gerenciamento" (click)="Gerenciamento()" style="cursor: pointer;">Gerenciamento</div>
+          <div class="menu" *ngIf="isGerenciamentoOpen">
+            <li><a class="dropdown-item-gerenciamento" href="gerenciamento" style="cursor: pointer;">Produtos</a></li>
+            <li><hr class="dropdown-divider my-0" /></li>
+            <li><a class="dropdown-item-gerenciamento" href="gerenciamento/pedidos" style="cursor: pointer;">Pedidos</a></li>
+            <li><hr class="dropdown-divider my-0" /></li>
+            <li><a class="dropdown-item-gerenciamento" href="gerenciamento/usuarios" style="cursor: pointer;">Usuários</a></li>
+          </div>
+        </div>
 
         <li class="nav-item">
           

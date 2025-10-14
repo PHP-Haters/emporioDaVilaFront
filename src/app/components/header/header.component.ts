@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 export class HeaderComponent {
   @Input() bgGranulado : boolean = false;
   scrolled: boolean = false;
+  isGerenciamentoOpen: boolean = false;
 
   constructor(private router: Router, public authUtil: AuthUtil) {}
 
@@ -25,6 +26,14 @@ export class HeaderComponent {
 
   goToLogin() {
     this.router.navigate(['/login']);
+  }
+
+  Gerenciamento(): void{
+    this.isGerenciamentoOpen = !this.isGerenciamentoOpen;
+  }
+
+  clickedOutSide(): void{
+    this.isGerenciamentoOpen = false;
   }
 
   logout() {
