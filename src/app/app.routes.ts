@@ -20,7 +20,7 @@ export const routes: Routes = [
   { path: 'gerenciamento', component: PaginaGerenciamentoComponent },
   { path: 'gerenciamento/pedidos', component: PaginaGerenciamentoPedidosComponent },
   { path: 'gerenciamento/usuarios', component: PaginaGerenciamentoUsuariosComponent },
-  { path: 'usuario', component: PaginaUsuarioComponent }
+  { path: 'usuario', component: PaginaUsuarioComponent },
   { path: 'produto', component: PaginaProdutoComponent}
 ];
 
