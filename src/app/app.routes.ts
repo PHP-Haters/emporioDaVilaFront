@@ -9,6 +9,7 @@ import { PaginaGerenciamentoComponent } from './pages/pagina-gerenciamento/pagin
 import { PaginaGerenciamentoPedidosComponent } from './pages/pagina-gerenciamento-pedidos/pagina-gerenciamento-pedidos.component';
 import { PaginaGerenciamentoUsuariosComponent } from './pages/pagina-gerenciamento-usuarios/pagina-gerenciamento-usuarios.component';
 import { PaginaUsuarioComponent } from './pages/pagina-usuario/pagina-usuario.component';
+import { PaginaProdutoComponent } from './pages/pagina-produto/pagina-produto.component';
 
 export const routes: Routes = [
   { path: "", redirectTo: "/inicio", pathMatch: "full" },
@@ -20,6 +21,7 @@ export const routes: Routes = [
   { path: 'gerenciamento/pedidos', component: PaginaGerenciamentoPedidosComponent },
   { path: 'gerenciamento/usuarios', component: PaginaGerenciamentoUsuariosComponent },
   { path: 'usuario', component: PaginaUsuarioComponent }
+  { path: 'produto', component: PaginaProdutoComponent}
 ];
 
 @NgModule({
