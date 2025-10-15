@@ -7,15 +7,17 @@ import { PaginaProdutosComponent } from './pages/pagina-produtos/pagina-produtos
 import { PaginaContatoComponent } from './pages/pagina-contato/pagina-contato.component';
 import { PaginaGerenciamentoComponent } from './pages/pagina-gerenciamento/pagina-gerenciamento.component';
 import { PaginaUsuarioComponent } from './pages/pagina-usuario/pagina-usuario.component';
+import { PaginaProdutoComponent } from './pages/pagina-produto/pagina-produto.component';
 
 export const routes: Routes = [
-    { path: "", redirectTo: "/inicio", pathMatch: "full" },
+  { path: "", redirectTo: "/inicio", pathMatch: "full" },
   { path: 'inicio', component: PaginaInicialComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'produtos', component: PaginaProdutosComponent },
   { path: 'contato', component: PaginaContatoComponent },
   { path: 'gerenciamento', component: PaginaGerenciamentoComponent },
-  { path: 'usuario', component: PaginaUsuarioComponent }
+  { path: 'usuario', component: PaginaUsuarioComponent },
+  { path: 'produto', component: PaginaProdutoComponent}
 ];
 
 @NgModule({
