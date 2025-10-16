@@ -14,16 +14,29 @@
         <li class="nav-item">
           <a class="nav-link" href="contato" tabindex="-1">Contato</a>
         </li>
-        <div mdbDropdown class="dropdown" clickOutSide (clickOutside)="clickedOutSide()">
-          <div class="menu-gerenciamento" (click)="Gerenciamento()" style="cursor: pointer;">Gerenciamento</div>
-          <div class="menu" *ngIf="isGerenciamentoOpen">
-            <li><a class="dropdown-item-gerenciamento" href="gerenciamento" style="cursor: pointer;">Produtos</a></li>
-            <li><hr class="dropdown-divider my-0" /></li>
-            <li><a class="dropdown-item-gerenciamento" href="gerenciamento/pedidos" style="cursor: pointer;">Pedidos</a></li>
-            <li><hr class="dropdown-divider my-0" /></li>
-            <li><a class="dropdown-item-gerenciamento" href="gerenciamento/usuarios" style="cursor: pointer;">Usuários</a></li>
+        <li class="nav-item">
+          <div mdbDropdown class="dropdown">
+            <button
+              class="nav-link fs-8 px-4 py-2"
+              type="button"
+              id="dropdownGerenciamentoButton"
+              aria-expanded="false"
+              mdbDropdownToggle
+            >
+              Gerenciamento
+            </button>
+            <ul
+              mdbDropdownMenu
+              class="dropdown-menu dropdown-menu-lg-end"
+              aria-labelledby="dropdownGerenciamentoButton"
+            >
+              <li><a class="dropdown-item" href="produtos">Produtos</a></li>
+              <li><a class="dropdown-item" href="pedidos">Pedidos</a></li>
+              <li><a class="dropdown-item" href="usuarios">Usuários</a></li>
+            </ul>
           </div>
-        </div>
+        </li>
+
 
         <li class="nav-item">
           
