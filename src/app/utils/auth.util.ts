@@ -16,7 +16,7 @@ export class AuthUtil {
   }
 
   get isUserAdmin(): boolean {
-    return Boolean(localStorage.getItem("isAdmin"));
+    return localStorage.getItem('isAdmin') === 'true';
   }
 
   get loggedUserId() {
