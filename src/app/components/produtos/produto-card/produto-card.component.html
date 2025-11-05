@@ -8,10 +8,9 @@
       {{ produto.stock ? 'Em estoque' : 'Fora de estoque' }}
     </p>
 
-    <div class="d-flex align-items-center gap-5" *ngIf="authService.isUserLoggedIn">
+    <div class="d-flex align-items-center gap-5" *ngIf="authService.isUserAdmin">
       <button type="button" class="btn btn-primary shadow-none" (click)="launchModal()" >Editar</button>
       <button type="button" class="btn btn-danger shadow-none" (click)="onDelete()">Deletar</button>
-
     </div>
   </div>
 </div>
