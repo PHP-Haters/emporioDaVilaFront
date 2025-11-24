@@ -49,7 +49,7 @@ export class LoginPageComponent {
     next:  (loginResponse) => {
         console.log(loginResponse);
         this.usuarioLogado = new Usuario(loginResponse.usuario); // usa o construtor pra mapear
-        this.authUtil.salvarUsuarioLocal(this.usuarioLogado);
+        this.authUtil.salvarUsuarioLocal(loginResponse);
 
         this.sucesso = true;
         this.mensagem = "Login bem sucedido!";

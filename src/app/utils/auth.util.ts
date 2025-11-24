@@ -36,7 +36,6 @@ export class AuthUtil {
     return usuario.id ?? null; // retorna o id ou null se não existir
   }
 
-
   get usuarioLocal() {
     const usuario = localStorage.getItem('usuario');
 
@@ -51,8 +50,9 @@ export class AuthUtil {
     return this.http.post<LoginDTO>(`${this.url}/login`, usuario);
   }
 
-  salvarUsuarioLocal(usuarioLogado: Usuario) {
-    localStorage.setItem('usuario', JSON.stringify(usuarioLogado));
+  salvarUsuarioLocal(loginDTO: LoginDTO) {
+    localStorage.setItem('usuario', JSON.stringify(loginDTO.usuario));
+    localStorage.setItem('token', String(loginDTO.token));
 
     this._isUserLoggedIn = true;
   }
