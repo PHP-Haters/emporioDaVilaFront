@@ -7,6 +7,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     catchError((err: HttpErrorResponse) => {
       let errorMsg = 'Erro desconhecido';
+      console.log(err);
 
       if (err.error instanceof ErrorEvent) {
         // Erro de rede / cliente

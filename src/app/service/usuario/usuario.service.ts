@@ -31,9 +31,4 @@ export class UsuarioService {
   deleteUsuario(id: number): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`);
   }
-
-  
-  login(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(`${this.url}/login`, usuario);
-  }
 }

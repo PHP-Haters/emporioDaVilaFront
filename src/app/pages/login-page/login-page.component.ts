@@ -33,7 +33,7 @@ export class LoginPageComponent {
   usuarioLogado!: Usuario;
 
 
-  constructor(private router: Router, private authUtil: AuthUtil, private usuarioService: UsuarioService) {}
+  constructor(private router: Router, private authUtil: AuthUtil) {}
 
   toggleMode() {
     this.isRegistering = !this.isRegistering;
@@ -45,10 +45,11 @@ export class LoginPageComponent {
    
    usuario.email = email;
    usuario.senha = senha;
-   this.usuarioService.login(usuario).subscribe({
-    next:  (user) => {
-        this.usuarioLogado = new Usuario(user); // usa o construtor pra mapear
-        this.authUtil.login(this.usuarioLogado);
+   this.authUtil.login(usuario).subscribe({
+    next:  (loginResponse) => {
+        console.log(loginResponse);
+        this.usuarioLogado = new Usuario(loginResponse.usuario); // usa o construtor pra mapear
+        this.authUtil.salvarUsuarioLocal(this.usuarioLogado);
 
         this.sucesso = true;
         this.mensagem = "Login bem sucedido!";
@@ -73,16 +74,16 @@ export class LoginPageComponent {
       usuario.nome = nome;
       usuario.telefone = Number(telefone);
 
-      this.usuarioService.criarUsuario(usuario).subscribe({
-        next:  (user) => {
-            this.usuarioLogado = user;
-            this.authUtil.login(this.usuarioLogado);
+      // this.usuarioService.criarUsuario(usuario).subscribe({
+      //   next:  (user) => {
+      //       this.usuarioLogado = user;
+      //       this.authUtil.login(this.usuarioLogado);
             
-            this.sucesso = true;
-            this.mensagem = "Conta criada!";
-            this.isRegistering = false;
-        }
-      });
+      //       this.sucesso = true;
+      //       this.mensagem = "Conta criada!";
+      //       this.isRegistering = false;
+      //   }
+      // });
   }
   redirectToIndex() {
     setTimeout(() => {
