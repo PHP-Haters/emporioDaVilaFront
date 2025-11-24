@@ -29,14 +29,7 @@ export class PaginaUsuarioComponent implements OnInit {
   }
 
   getUserData() {
-    const id = this.authUtil.loggedUserId;
-    this.currentUserId = Number(id);
-
-    this.usuarioService.getUsuarioById(this.currentUserId).subscribe({
-      next: (usuario) => {
-        this.loggedUser = usuario;
-      },
-    });
+    this.loggedUser = this.authUtil.usuarioLocal;
   }
 
   togglePassword(input: HTMLInputElement) {
