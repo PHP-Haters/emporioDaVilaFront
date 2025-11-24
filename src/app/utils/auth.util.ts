@@ -24,17 +24,26 @@ export class AuthUtil {
     return localStorage.getItem('isAdmin') === 'true';
   }
 
-  get loggedUserId() {
-    if(localStorage.getItem('userId')){
-      return localStorage.getItem('userId');
-    } else {
+ get loggedUserId() {
+    const storedUser = localStorage.getItem('usuario');
+
+    if (!storedUser) {
       return null;
     }
+
+    const usuario = JSON.parse(storedUser);
+
+    return usuario.id ?? null; // retorna o id ou null se não existir
   }
 
+
   get usuarioLocal() {
-    if(localStorage.getItem('userId')){
-      return localStorage.getItem('userId');
+    const usuario = localStorage.getItem('usuario');
+
+    if(usuario){
+      return JSON.parse(usuario);
+    } else {
+      return null;
     }
   }
 
