@@ -20,11 +20,19 @@ export class AuthUtil {
     return this._isUserLoggedIn;
   }
 
-  get isUserAdmin(): boolean {
-    return localStorage.getItem('isAdmin') === 'true';
+  get userRole(): string | null {
+    const storedUser = localStorage.getItem('usuario');
+    if (!storedUser) return null;
+
+    const usuario = JSON.parse(storedUser);
+    return usuario.role ?? null;
   }
 
- get loggedUserId() {
+  get isUserAdmin(): boolean {
+    return this.userRole === 'ROLE_ADMIN';
+  }
+
+  get loggedUserId() {
     const storedUser = localStorage.getItem('usuario');
 
     if (!storedUser) {
@@ -32,7 +40,6 @@ export class AuthUtil {
     }
 
     const usuario = JSON.parse(storedUser);
-
     return usuario.id ?? null; // retorna o id ou null se não existir
   }
 
