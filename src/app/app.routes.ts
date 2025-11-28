@@ -9,6 +9,7 @@ import { PaginaGerenciamentoComponent } from './pages/pagina-gerenciamento/pagin
 import { PaginaUsuarioComponent } from './pages/pagina-usuario/pagina-usuario.component';
 import { PaginaProdutoComponent } from './pages/pagina-produto/pagina-produto.component';
 import { loginGuard } from './guards/login.guard';
+import { PaginaCarrinhoComponent } from './pages/pagina-carrinho/pagina-carrinho.component';
 
 export const routes: Routes = [
   { path: "", redirectTo: "/inicio", pathMatch: "full" },
@@ -18,7 +19,8 @@ export const routes: Routes = [
   { path: 'contato', component: PaginaContatoComponent },
   { path: 'gerenciamento', canActivate: [loginGuard], component: PaginaGerenciamentoComponent },
   { path: 'usuario', component: PaginaUsuarioComponent },
-  { path: 'produto', component: PaginaProdutoComponent}
+  { path: 'produto', component: PaginaProdutoComponent},
+  { path: 'meuCarrinho', component: PaginaCarrinhoComponent}
 ];
 
 @NgModule({
