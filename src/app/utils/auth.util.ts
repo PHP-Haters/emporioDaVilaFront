@@ -3,11 +3,12 @@ import { Usuario } from "../model/usuario.model";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { LoginDTO } from "../model/loginDTO.model";
+import { environment } from "../../environments/environment";
 
 @Injectable({ providedIn: 'root' })
 export class AuthUtil {
   private _isUserLoggedIn: boolean = false;
-  private url: string = 'http://localhost:8080/auth';
+  private url: string = environment.SERVIDOR + '/auth';
 
   constructor(private http: HttpClient) {
     // Ao iniciar, lê o estado do localStorage
