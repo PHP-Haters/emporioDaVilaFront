@@ -8,6 +8,7 @@ import { PaginaContatoComponent } from './pages/pagina-contato/pagina-contato.co
 import { PaginaGerenciamentoComponent } from './pages/pagina-gerenciamento/pagina-gerenciamento.component';
 import { PaginaUsuarioComponent } from './pages/pagina-usuario/pagina-usuario.component';
 import { PaginaProdutoComponent } from './pages/pagina-produto/pagina-produto.component';
+import { loginGuard } from './guards/login.guard';
 
 export const routes: Routes = [
   { path: "", redirectTo: "/inicio", pathMatch: "full" },
@@ -15,7 +16,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'produtos', component: PaginaProdutosComponent },
   { path: 'contato', component: PaginaContatoComponent },
-  { path: 'gerenciamento', component: PaginaGerenciamentoComponent },
+  { path: 'gerenciamento', canActivate: [loginGuard], component: PaginaGerenciamentoComponent },
   { path: 'usuario', component: PaginaUsuarioComponent },
   { path: 'produto', component: PaginaProdutoComponent}
 ];
