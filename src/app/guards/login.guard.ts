@@ -9,13 +9,10 @@ export const loginGuard: CanActivateFn = (route, state) => {
   let authUtil = inject(AuthUtil);
 
   if(authUtil.isUserAdmin == false) {
-    alert("YOU ");
-    alert(" SHALL ");
-    alert(" NOT ");
-    alert(" PASS");
-     return new RedirectCommand(router.parseUrl('/inicio'), {
-      skipLocationChange: false, 
-     });
+    alert("Você não tem permissão para acessar essa página");
+    return new RedirectCommand(router.parseUrl('/inicio'), {
+    skipLocationChange: false, 
+    });
   }
 
 
