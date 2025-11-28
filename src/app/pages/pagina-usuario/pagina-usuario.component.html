@@ -34,7 +34,7 @@
                 type="tel"
                 class="form-control"
                 placeholder="(XX) XXXXX-XXXX"
-                [ngModel]="loggedUser.telefone"
+                [(ngModel)]="loggedUser.telefone"
                 name="telefone"
             />
         </div>
@@ -47,13 +47,14 @@
             class="form-control"
             placeholder="Nova senha (será atualizada ao submeter formulário)"
             name="senha"
+            [(ngModel)]="loggedUser.senha"
             />
             <i
-            class="far fa-eye position-absolute top-50 end-0 translate-middle-y pe-3"
-            [class.fa-eye]="!showPassword"
-            [class.fa-eye-slash]="showPassword"
-            (pointerdown)="togglePassword(passwordInput)"
-            style="cursor: pointer;"
+                class="far fa-eye position-absolute top-50 end-0 translate-middle-y pe-3"
+                [class.fa-eye]="!showPassword"
+                [class.fa-eye-slash]="showPassword"
+                (pointerdown)="togglePassword(passwordInput)"
+                style="cursor: pointer;"
             ></i>
         </div>
 

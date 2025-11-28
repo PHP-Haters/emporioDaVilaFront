@@ -30,6 +30,7 @@ export class PaginaUsuarioComponent implements OnInit {
 
   getUserData() {
     this.loggedUser = this.authUtil.usuarioLocal;
+    this.loggedUser.senha = '';
   }
 
   togglePassword(input: HTMLInputElement) {
