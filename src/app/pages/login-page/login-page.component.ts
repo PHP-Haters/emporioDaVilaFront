@@ -33,7 +33,7 @@ export class LoginPageComponent {
   usuarioLogado!: Usuario;
 
 
-  constructor(private router: Router, private authUtil: AuthUtil) {}
+  constructor(private router: Router, private authUtil: AuthUtil, private usuarioService: UsuarioService) {}
 
   toggleMode() {
     this.isRegistering = !this.isRegistering;
@@ -74,20 +74,25 @@ export class LoginPageComponent {
       usuario.nome = nome;
       usuario.telefone = Number(telefone);
 
-      // this.usuarioService.criarUsuario(usuario).subscribe({
-      //   next:  (user) => {
-      //       this.usuarioLogado = user;
-      //       this.authUtil.login(this.usuarioLogado);
+      this.usuarioService.criarUsuario(usuario).subscribe({
+        next:  (user) => {
+
+            this.usuarioLogado = user;
+            this.authUtil.login(this.usuarioLogado);
             
-      //       this.sucesso = true;
-      //       this.mensagem = "Conta criada!";
-      //       this.isRegistering = false;
-      //   }
-      // });
+            this.sucesso = true;
+            this.mensagem = "Conta criada! Redirecionando para o login...";
+
+            setTimeout(() => {
+              this.isRegistering = false;
+              this.mensagem = "";
+            }, 1500);
+        }
+      });
   }
   redirectToIndex() {
     setTimeout(() => {
-        this.router.navigate(['inicio']);
-      }, 1000);
+      this.router.navigate(['inicio']);
+    }, 1000);
   }
 }
