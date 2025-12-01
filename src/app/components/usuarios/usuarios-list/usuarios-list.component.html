@@ -20,8 +20,8 @@
       <td>{{ user.telefone }}</td>
       <td>{{ user.admin ? 'Sim' : 'Não' }}</td>
       <td>
-        <button class="btn-editar">Editar</button>
-        <button class="btn-excluir">Excluir</button>
+        <button class="btn-editar" (click)="editarUsuario(user)" >Editar</button>
+        <button class="btn-excluir" (click)="deletarUsuario()">Excluir</button>
       </td>
     </tr>
   </tbody>
