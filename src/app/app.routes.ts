@@ -24,7 +24,7 @@ export const routes: Routes = [
   { path: 'gerenciamento/usuarios', canActivate: [loginGuard], component: PaginaGerenciamentoUsuariosComponent },
   { path: 'usuario', component: PaginaUsuarioComponent },
   { path: 'produto', component: PaginaProdutoComponent},
-  { path: 'meuCarrinho', component: PaginaCarrinhoComponent}
+  { path: 'meu-carrinho', component: PaginaCarrinhoComponent}
 ];
 
 @NgModule({

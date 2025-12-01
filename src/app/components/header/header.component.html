@@ -8,16 +8,23 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="inicio">Início</a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" href="produtos">Produtos</a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" href="contato" tabindex="-1">Contato</a>
         </li>
+
+        <li class="nav-item" *ngIf="!this.authUtil.isUserAdmin">
+          <a class="nav-link" href="meu-carrinho" tabindex="-1">Carrinho</a>
+        </li>
+
         <li class="nav-item" *ngIf="this.authUtil.isUserAdmin">
           <div mdbDropdown class="dropdown">
             <button
-              class="nav-link fs-8 px-4 py-2"
+              class="nav-link fs-8 p-2"
               type="button"
               id="dropdownGerenciamentoButton"
               aria-expanded="false"
@@ -37,9 +44,7 @@
           </div>
         </li>
 
-
         <li class="nav-item">
-          
           @if(!authUtil.isUserLoggedIn){
             <button
               type="button"
@@ -65,7 +70,6 @@
               </ul>
             </div>
           }
-
         </li>
       </ul>
     </div>
