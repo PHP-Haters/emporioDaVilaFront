@@ -14,7 +14,7 @@
     </div>
 
     <div class="d-flex align-items-center gap-5" *ngIf="this.authService.isUserLoggedIn && !this.authService.isUserAdmin">
-      <button type="button" class="btn btn-primary shadow-none cart-btn" title="Adicionar ao carrinho">
+      <button type="button" class="btn btn-primary shadow-none cart-btn" title="Adicionar ao carrinho" (click)="addToCart()" >
         <i class="fa-solid fa-basket-shopping"></i>
       </button>
     </div>

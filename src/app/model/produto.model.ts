@@ -2,7 +2,7 @@ import { Categoria } from "./enum/categorias.enum";
 import { ProdutoPedido } from "./produtoPedido.model";
 
 export class Produto {
-  id?: number;             // opcional, pois pode não existir ao criar
+  id!: number;             // opcional, pois pode não existir ao criar
   nome!: string;           // obrigatório
   valor!: number;          // obrigatório
   stock: boolean = true;   // default true (igual ao prePersist)

@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { ProdutoPedido } from "../../model/produtoPedido.model";
 import { environment } from "../../../environments/environment";
+import { AuthUtil } from "../../utils/auth.util";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { environment } from "../../../environments/environment";
 export class ProdutoPedidoService {
   private url = environment.SERVIDOR + '/produto-pedido';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authUtil: AuthUtil) {}
 
   criarProdutoPedido(produtoPedido: ProdutoPedido): Observable<any> {
     return this.http.post(this.url, produtoPedido, { responseType: 'text' });
