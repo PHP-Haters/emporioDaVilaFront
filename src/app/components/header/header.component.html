@@ -13,12 +13,12 @@
           <a class="nav-link" href="produtos">Produtos</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="contato" tabindex="-1">Contato</a>
-        </li>
-
         <li class="nav-item" *ngIf="!this.authUtil.isUserAdmin">
           <a class="nav-link" href="meu-carrinho" tabindex="-1">Carrinho</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contato" tabindex="-1">Contato</a>
         </li>
 
         <li class="nav-item" *ngIf="this.authUtil.isUserAdmin">
