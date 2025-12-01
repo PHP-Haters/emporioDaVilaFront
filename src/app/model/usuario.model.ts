@@ -7,7 +7,7 @@ export class Usuario {
   telefone!: number;   // default true (igual ao prePersist)
   email!: string;         // obrigatório
   enderecos?: Endereco[];
-  admin: Boolean = false;
+  role!: string;
 
   constructor(init?: Partial<Usuario>) {
     Object.assign(this, init);
