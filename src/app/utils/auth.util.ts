@@ -12,7 +12,7 @@ export class AuthUtil {
 
   constructor(private http: HttpClient) {
     // Ao iniciar, lê o estado do localStorage
-    if(localStorage.getItem('usuario')) {
+    if(localStorage.getItem('token')) {
       this._isUserLoggedIn = true;
     }
   }
@@ -67,6 +67,8 @@ export class AuthUtil {
 
   logout() {
     this._isUserLoggedIn = false;
+
     localStorage.removeItem('usuario');
+    localStorage.removeItem('token');
   }
 }
